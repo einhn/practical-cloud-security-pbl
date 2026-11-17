@@ -1,0 +1,23 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: pbl-frontend-backend-l7-visibility
+  namespace: pbl-security
+spec:
+  endpointSelector:
+    matchLabels:
+      app: frontend
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: pbl-security
+            app: backend
+      toPorts:
+        - ports:
+            - port: "80"
+              protocol: TCP
+          # An empty HTTP rule permits every request on this already-allowed
+          # edge while redirecting it through Cilium's L7 proxy for Hubble.
+          rules:
+            http:
+              - {}

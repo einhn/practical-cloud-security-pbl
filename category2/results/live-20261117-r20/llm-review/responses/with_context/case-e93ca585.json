@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.84,
+  "evidence_ids": [
+    "edge-2",
+    "CHG-2028",
+    "CHG-4374"
+  ],
+  "alternative_hypothesis": "The dropped connections were an authorized segmentation test, with retries accounting for the three recorded attempts.",
+  "missing_context": [
+    "Confirmation that CHG-4374 covered TCP port 80 and the recorded attempts",
+    "Runtime process logs identifying the initiator"
+  ],
+  "rationale": "The frontend made three dropped connection attempts to the database on TCP/80. CHG-4374 covered a direct-path test during the observation window but did not specify a port, while the ticket explicitly covering TCP/80 had expired.",
+  "case_id": "case-e93ca585",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.938,
+    "usage": {
+      "prompt_tokens": 1299,
+      "completion_tokens": 357,
+      "total_tokens": 1656
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:52Z"
+  }
+}

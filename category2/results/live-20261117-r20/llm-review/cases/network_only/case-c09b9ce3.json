@@ -1,0 +1,160 @@
+{
+  "case_id": "case-c09b9ce3",
+  "observation_window": {
+    "start": "2026-11-17T07:48:41Z",
+    "end": "2026-11-17T07:48:58Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [
+    {
+      "evidence_id": "ev-43399d21",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:48:42.524",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence",
+      "evidence": {
+        "constituent_rules": [
+          "destination-fanout",
+          "path-violation"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-d861e954",
+      "rule_id": "destination-fanout",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:48:42.524",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "summary": "pbl-security/frontend contacted 4 destinations in 15s",
+      "evidence": {
+        "attempt_count": 30,
+        "destinations": [
+          "172.18.0.2",
+          "172.18.0.3",
+          "172.18.0.4",
+          "kube-system/coredns",
+          "pbl-security/backend",
+          "pbl-security/db"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-6f5bb8a6",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:48:42.758",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "summary": "pbl-security/frontend attempted 4 non-baseline network path(s)",
+      "evidence": {
+        "blocked_syn_or_datagram_count": 10,
+        "targets": [
+          "172.18.0.2:80/TCP",
+          "172.18.0.3:80/TCP",
+          "172.18.0.4:80/TCP",
+          "pbl-security/db:80/TCP"
+        ]
+      }
+    }
+  ],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.2",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:48:47Z",
+      "last_seen": "2026-11-17T07:48:54Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.3",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:48:48Z",
+      "last_seen": "2026-11-17T07:48:55Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.4",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:48:46Z",
+      "last_seen": "2026-11-17T07:48:53Z"
+    },
+    {
+      "evidence_id": "edge-4",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 12,
+      "first_seen": "2026-11-17T07:48:42Z",
+      "last_seen": "2026-11-17T07:48:51Z"
+    },
+    {
+      "evidence_id": "edge-5",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:48:42Z",
+      "last_seen": "2026-11-17T07:48:52Z"
+    },
+    {
+      "evidence_id": "edge-6",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "REDIRECTED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:48:42Z",
+      "last_seen": "2026-11-17T07:48:52Z"
+    },
+    {
+      "evidence_id": "edge-7",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/db",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:48:42Z",
+      "last_seen": "2026-11-17T07:48:52Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": "not_collected",
+    "change_tickets": "not_collected",
+    "kubernetes_audit": "not_collected",
+    "runtime_process": "not_collected"
+  }
+}

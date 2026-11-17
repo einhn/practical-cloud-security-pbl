@@ -1,0 +1,27 @@
+{
+  "alerts": [
+    {
+      "evidence": {
+        "blocked_syn_or_datagram_count": 3,
+        "targets": [
+          "pbl-security/db:80/TCP"
+        ]
+      },
+      "first_seen": "2026-11-17T08:04:52.442",
+      "last_seen": "2026-11-17T08:04:54.530",
+      "rationale": "The workload-to-workload/port edge is absent from the declared service graph and the network policy denied it. A single event remains medium severity because misconfiguration can look identical to an attack.",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend attempted 1 non-baseline network path(s)"
+    }
+  ],
+  "summary": {
+    "alert_count": 1,
+    "connection_attempts": 4,
+    "coverage": "complete",
+    "parse_errors": 0,
+    "parsed_flows": 111,
+    "telemetry_loss_markers": 0
+  }
+}

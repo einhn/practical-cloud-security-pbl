@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "parsed_flows": 928,
+    "connection_attempts": 56,
+    "telemetry_loss_markers": 0,
+    "parse_errors": 0,
+    "alert_count": 1,
+    "coverage": "complete"
+  },
+  "alerts": [
+    {
+      "rule_id": "periodic-beacon",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T06:24:49.408",
+      "last_seen": "2026-11-17T06:25:17.538",
+      "summary": "pbl-security/frontend opened 8 connections to pbl-egress-sim/ext-api:80/TCP every 3.991s (CV=0.0549)",
+      "evidence": {
+        "edge": "pbl-egress-sim/ext-api:80/TCP",
+        "edge_in_service_graph": true,
+        "verdicts": [
+          "FORWARDED"
+        ],
+        "events": 8,
+        "mean_interval_seconds": 4.019,
+        "median_interval_seconds": 3.991,
+        "interval_cv": 0.0549
+      },
+      "rationale": "Request-driven traffic is bursty; a fixed-period series of new connections on one edge is consistent with an implant heartbeat or C2 beacon. Timing is observable without decrypting payloads, including on an allowed edge."
+    }
+  ]
+}

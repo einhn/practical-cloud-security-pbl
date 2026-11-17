@@ -1,0 +1,36 @@
+{
+  "alert_count": 1,
+  "artifact_dir": "runs/091-abnormal_5_beacon-r18",
+  "capture_ended_at": "2026-11-17T08:06:34.907498Z",
+  "connection_attempts": 56,
+  "description": "Fixed-period implant heartbeat on the same declared egress edge",
+  "detection_latency_seconds": 0.371,
+  "duration_seconds": 28.317,
+  "expected_rule_hits": [
+    "periodic-beacon"
+  ],
+  "expected_rules": [
+    "periodic-beacon"
+  ],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "periodic-beacon"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 889,
+  "predicted_attack": true,
+  "repetition": 18,
+  "run_id": "091-abnormal_5_beacon-r18",
+  "scenario": "abnormal_5_beacon",
+  "scenario_ended_at": "2026-11-17T08:06:32.907397Z",
+  "script_exit": 0,
+  "sequence": 91,
+  "started_at": "2026-11-17T08:06:04.590496Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "attack",
+  "valid": true
+}

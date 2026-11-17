@@ -1,0 +1,36 @@
+{
+  "alert_count": 1,
+  "artifact_dir": "runs/039-abnormal_1-r20",
+  "capture_ended_at": "2026-11-17T07:54:29.644611Z",
+  "connection_attempts": 4,
+  "description": "Frontend directly probes the database service",
+  "detection_latency_seconds": 0.359,
+  "duration_seconds": 3.37,
+  "expected_rule_hits": [
+    "path-violation"
+  ],
+  "expected_rules": [
+    "path-violation"
+  ],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "path-violation"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 105,
+  "predicted_attack": true,
+  "repetition": 20,
+  "run_id": "039-abnormal_1-r20",
+  "scenario": "abnormal_1",
+  "scenario_ended_at": "2026-11-17T07:54:27.644512Z",
+  "script_exit": 0,
+  "sequence": 39,
+  "started_at": "2026-11-17T07:54:24.274983Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "attack",
+  "valid": true
+}

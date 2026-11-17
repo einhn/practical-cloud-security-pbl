@@ -1,0 +1,36 @@
+{
+  "verdict": "attack",
+  "confidence": 0.96,
+  "evidence_ids": [
+    "edge-1",
+    "edge-3",
+    "edge-5",
+    "edge-7",
+    "edge-9",
+    "edge-11",
+    "ev-a12b2afe",
+    "CHG-2601"
+  ],
+  "alternative_hypothesis": "An undocumented authorized security test or diagnostic probe generated the connection attempts.",
+  "missing_context": [
+    "Runtime process logs identifying the initiating process",
+    "Kubernetes audit logs",
+    "Records of any authorized security test covering the frontend, destinations, ports, and observation window"
+  ],
+  "rationale": "The frontend systematically probed two metadata addresses and another destination across four non-baseline ports, including ports 6667 and 6697; all attempts were dropped. CHG-2601 covers a different destination and port on the previous day, so it does not authorize this activity.",
+  "case_id": "case-84472a0d",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 8.014,
+    "usage": {
+      "prompt_tokens": 2923,
+      "completion_tokens": 368,
+      "total_tokens": 3291
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:28Z"
+  }
+}

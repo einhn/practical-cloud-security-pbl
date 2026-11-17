@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "edge-2",
+    "ev-5f567653"
+  ],
+  "alternative_hypothesis": "A misconfigured or temporarily authorized frontend attempted to reach the database directly.",
+  "missing_context": [
+    "Change tickets covering the observation window and frontend-to-database traffic on TCP port 80",
+    "Runtime process logs identifying the source of the attempts",
+    "Kubernetes audit and HTTP logs"
+  ],
+  "rationale": "The frontend made three blocked attempts to reach the database on a path absent from the declared service graph. The evidence does not establish whether the attempts were malicious, misconfigured, or authorized by a matching change.",
+  "case_id": "case-6899d7b1",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.393,
+    "usage": {
+      "prompt_tokens": 970,
+      "completion_tokens": 214,
+      "total_tokens": 1184
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:28Z"
+  }
+}

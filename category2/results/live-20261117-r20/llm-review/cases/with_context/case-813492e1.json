@@ -1,0 +1,94 @@
+{
+  "case_id": "case-813492e1",
+  "observation_window": {
+    "start": "2026-11-17T07:56:04Z",
+    "end": "2026-11-17T07:56:33Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [
+    {
+      "evidence_id": "ev-421c273f",
+      "rule_id": "periodic-beacon",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:56:04.699",
+      "last_seen": "2026-11-17T07:56:31.575",
+      "summary": "pbl-security/frontend opened 8 connections to pbl-egress-sim/ext-api:80/TCP every 3.843s (CV=0.0331)",
+      "evidence": {
+        "edge": "pbl-egress-sim/ext-api:80/TCP",
+        "edge_in_service_graph": true,
+        "events": 8,
+        "interval_cv": 0.0331,
+        "mean_interval_seconds": 3.839,
+        "median_interval_seconds": 3.843,
+        "verdicts": [
+          "FORWARDED"
+        ]
+      }
+    }
+  ],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 48,
+      "first_seen": "2026-11-17T07:56:04Z",
+      "last_seen": "2026-11-17T07:56:31Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-egress-sim/ext-api",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 8,
+      "first_seen": "2026-11-17T07:56:04Z",
+      "last_seen": "2026-11-17T07:56:31Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": {
+      "http_requests_observed": 0,
+      "allowlisted_routes": [
+        "pbl-security/frontend -> pbl-security/backend: GET /"
+      ],
+      "deviations": []
+    },
+    "change_tickets": [
+      {
+        "ticket": "[CHG-3361] 운영 점검: frontend에서 DB TCP/80 reachability 확인 (차단 기대). 담당 ops-oncall, 승인 sec-lead.",
+        "window_start": "2026-11-16T07:46:04Z",
+        "window_end": "2026-11-16T08:16:04Z"
+      },
+      {
+        "ticket": "[CHG-6109] ext-api 연동 키 교체, 외부 API 호출 실패 모니터링. 담당 app-team.",
+        "window_start": "2026-11-17T07:36:04Z",
+        "window_end": "2026-11-17T08:36:04Z"
+      },
+      {
+        "ticket": "[CHG-8870] backend Deployment 이미지 패치(busybox 1.36.1) 및 재시작. 담당 platform-team.",
+        "window_start": "2026-11-17T07:35:04Z",
+        "window_end": "2026-11-17T08:35:04Z"
+      }
+    ],
+    "kubernetes_audit": "not_collected (every action in this lab uses the same admin identity)",
+    "runtime_process": "not_collected"
+  }
+}

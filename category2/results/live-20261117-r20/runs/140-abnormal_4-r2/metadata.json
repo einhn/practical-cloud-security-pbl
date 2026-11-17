@@ -1,0 +1,42 @@
+{
+  "alert_count": 5,
+  "artifact_dir": "runs/140-abnormal_4-r2",
+  "capture_ended_at": "2026-11-17T08:20:49.333506Z",
+  "connection_attempts": 12,
+  "description": "Safe cloud-metadata and IRC/C2 egress probes",
+  "detection_latency_seconds": 0.366,
+  "duration_seconds": 13.665,
+  "expected_rule_hits": [
+    "cloud-metadata-access",
+    "sensitive-service-probe"
+  ],
+  "expected_rules": [
+    "cloud-metadata-access",
+    "sensitive-service-probe"
+  ],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "cloud-metadata-access",
+    "correlated-lateral-movement",
+    "path-violation",
+    "port-sweep",
+    "sensitive-service-probe"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 301,
+  "predicted_attack": true,
+  "repetition": 2,
+  "run_id": "140-abnormal_4-r2",
+  "scenario": "abnormal_4",
+  "scenario_ended_at": "2026-11-17T08:20:47.333341Z",
+  "script_exit": 0,
+  "sequence": 140,
+  "started_at": "2026-11-17T08:20:33.668727Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "attack",
+  "valid": true
+}

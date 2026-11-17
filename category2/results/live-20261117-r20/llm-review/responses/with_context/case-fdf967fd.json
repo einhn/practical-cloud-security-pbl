@@ -1,0 +1,32 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "ev-c56d79e2",
+    "edge-1",
+    "edge-2",
+    "CHG-6220"
+  ],
+  "alternative_hypothesis": "The regular connections were benign application polling or monitoring related to the ext-api integration change.",
+  "missing_context": [
+    "Application polling schedule and ext-api request details",
+    "Runtime process responsible for the connections",
+    "Ticket scope identifying the authorized source workload and port"
+  ],
+  "rationale": "The frontend-to-ext-api edge is declared, but the regular connection pattern is consistent with either benign polling or malicious beaconing. CHG-6220 covers the observation window but does not specify the source workload or port, so its scope cannot be confirmed as matching the observed traffic.",
+  "case_id": "case-fdf967fd",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 8.936,
+    "usage": {
+      "prompt_tokens": 1287,
+      "completion_tokens": 396,
+      "total_tokens": 1683
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:48:01Z"
+  }
+}

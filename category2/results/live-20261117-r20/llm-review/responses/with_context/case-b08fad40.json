@@ -1,0 +1,33 @@
+{
+  "verdict": "attack",
+  "confidence": 0.81,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-7",
+    "CHG-1642"
+  ],
+  "alternative_hypothesis": "A misconfigured frontend or an undocumented operational check retried connections to these destinations.",
+  "missing_context": [
+    "Frontend process and command-line activity",
+    "Purpose and ownership of the three IP addresses",
+    "Evidence of any other authorization for the probes"
+  ],
+  "rationale": "The frontend repeatedly attempted connections to three non-baseline IP addresses and directly to the database, consistent with unauthorized network probing; all were dropped. CHG-1642 covered only the database reachability check and had expired before the observation window.",
+  "case_id": "case-b08fad40",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 13.288,
+    "usage": {
+      "prompt_tokens": 2021,
+      "completion_tokens": 546,
+      "total_tokens": 2567
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:46Z"
+  }
+}

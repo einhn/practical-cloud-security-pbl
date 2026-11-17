@@ -1,0 +1,11 @@
+{
+  "model": "gpt-6.1-terra",
+  "temperature": 0.0,
+  "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+  "base_url_host": "factchat-cloud.mindlogic.ai",
+  "conditions": [
+    "network_only",
+    "with_context"
+  ],
+  "last_response_at": "2026-11-17T08:48:01Z"
+}

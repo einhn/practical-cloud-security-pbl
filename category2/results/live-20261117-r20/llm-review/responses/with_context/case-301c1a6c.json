@@ -1,0 +1,35 @@
+{
+  "verdict": "attack",
+  "confidence": 0.98,
+  "evidence_ids": [
+    "ev-2e7b23f5",
+    "ev-57cc342c",
+    "edge-3",
+    "edge-12",
+    "edge-18",
+    "edge-22",
+    "edge-31",
+    "CHG-7564"
+  ],
+  "alternative_hypothesis": "An undocumented authorized security test or diagnostic scan generated the probes.",
+  "missing_context": [
+    "Runtime process and command-line logs",
+    "Authorization or test records covering the observed window and targets"
+  ],
+  "rationale": "The frontend systematically probed six non-baseline ports across five destinations, including administrative services; the attempts were dropped. CHG-7564 covered only frontend-to-DB TCP/80 on the previous day, so it does not authorize this scan.",
+  "case_id": "case-301c1a6c",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.629,
+    "usage": {
+      "prompt_tokens": 5093,
+      "completion_tokens": 229,
+      "total_tokens": 5322
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:13Z"
+  }
+}

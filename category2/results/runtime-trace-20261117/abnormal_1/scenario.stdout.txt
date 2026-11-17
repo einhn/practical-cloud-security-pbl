@@ -1,0 +1,4 @@
+[Hildegard:abnormal_1] frontend -> db, a service outside the normal path.
+wget: download timed out
+command terminated with exit code 1
+Blocked as expected; inspect the new destination in Hubble.

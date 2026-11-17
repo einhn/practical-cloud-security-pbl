@@ -1,0 +1,33 @@
+{
+  "verdict": "attack",
+  "confidence": 0.95,
+  "evidence_ids": [
+    "ev-45a232a2",
+    "edge-1",
+    "edge-5",
+    "edge-11",
+    "CHG-3924",
+    "CHG-7485"
+  ],
+  "alternative_hypothesis": "A planned but undocumented network security or connectivity test generated the probes.",
+  "missing_context": [
+    "Runtime process and command-line logs",
+    "Authorization or test records covering the observed destinations and ports"
+  ],
+  "rationale": "The frontend systematically attempted 12 non-baseline connections across metadata endpoints and other destinations, including ports 6667 and 6697; all were dropped. The active ext-api ticket does not cover this sweep, and the frontend-to-DB reachability ticket was for a different destination and the previous day.",
+  "case_id": "case-b066daf9",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.218,
+    "usage": {
+      "prompt_tokens": 2920,
+      "completion_tokens": 343,
+      "total_tokens": 3263
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:40Z"
+  }
+}

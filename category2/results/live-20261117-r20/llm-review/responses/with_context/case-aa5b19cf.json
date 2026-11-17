@@ -1,0 +1,29 @@
+{
+  "verdict": "benign",
+  "confidence": 0.94,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "A compromised frontend used permitted routes to perform malicious activity.",
+  "missing_context": [
+    "Runtime process and application authentication logs"
+  ],
+  "rationale": "All observed connections match the declared service graph, and the observed HTTP requests had no allowlist deviations. Capture reported no lost events or parse errors.",
+  "case_id": "case-aa5b19cf",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 4.433,
+    "usage": {
+      "prompt_tokens": 1191,
+      "completion_tokens": 156,
+      "total_tokens": 1347
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:33Z"
+  }
+}

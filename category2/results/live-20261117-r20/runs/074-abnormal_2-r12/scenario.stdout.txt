@@ -1,0 +1,22 @@
+[abnormal_2] Rapid discovery across Pods, Services, and nodes.
+round=1 target=frontend:80
+round=1 target=backend:80
+round=1 target=db:80
+round=1 target=kubernetes.default.svc:80
+round=1 target=10.244.1.2:80
+round=1 target=10.244.2.133:80
+round=1 target=10.244.2.226:80
+round=1 target=172.18.0.4:80
+round=1 target=172.18.0.2:80
+round=1 target=172.18.0.3:80
+round=2 target=frontend:80
+round=2 target=backend:80
+round=2 target=db:80
+round=2 target=kubernetes.default.svc:80
+round=2 target=10.244.1.2:80
+round=2 target=10.244.2.133:80
+round=2 target=10.244.2.226:80
+round=2 target=172.18.0.4:80
+round=2 target=172.18.0.2:80
+round=2 target=172.18.0.3:80
+Discovery burst completed; compare destination count and frequency in Hubble.

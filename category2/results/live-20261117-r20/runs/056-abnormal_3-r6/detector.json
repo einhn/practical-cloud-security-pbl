@@ -1,0 +1,140 @@
+{
+  "alerts": [
+    {
+      "evidence": {
+        "constituent_rules": [
+          "destination-fanout",
+          "path-violation",
+          "port-sweep",
+          "sensitive-service-probe"
+        ]
+      },
+      "first_seen": "2026-11-17T07:58:48.970",
+      "last_seen": "2026-11-17T07:59:33.634",
+      "rationale": "Multiple weak signals occur for the same Kubernetes identity within one correlation window. This sequence is more discriminative than any isolated drop.",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence"
+    },
+    {
+      "evidence": {
+        "attempt_count": 14,
+        "ports": [
+          22,
+          443,
+          2379,
+          3306,
+          6379,
+          10250
+        ]
+      },
+      "first_seen": "2026-11-17T07:58:48.970",
+      "last_seen": "2026-11-17T07:59:33.634",
+      "rationale": "A single workload role normally uses a small stable port set. A broad port fan-out over a short window is consistent with service and kubelet probing.",
+      "rule_id": "port-sweep",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend probed 4 destination ports in 15s"
+    },
+    {
+      "evidence": {
+        "attempt_count": 14,
+        "destinations": [
+          "172.18.0.2",
+          "172.18.0.3",
+          "172.18.0.4",
+          "pbl-security/db"
+        ]
+      },
+      "first_seen": "2026-11-17T07:59:00.159",
+      "last_seen": "2026-11-17T07:59:28.056",
+      "rationale": "Normal service calls stay on a small declared dependency graph. Rapid fan-out across workload and infrastructure identities is consistent with discovery.",
+      "rule_id": "destination-fanout",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend contacted 4 destinations in 15s"
+    },
+    {
+      "evidence": {
+        "blocked_syn_or_datagram_count": 30,
+        "targets": [
+          "172.18.0.2:10250/TCP",
+          "172.18.0.2:22/TCP",
+          "172.18.0.2:2379/TCP",
+          "172.18.0.2:3306/TCP",
+          "172.18.0.2:443/TCP",
+          "172.18.0.2:6379/TCP",
+          "172.18.0.3:10250/TCP",
+          "172.18.0.3:22/TCP",
+          "172.18.0.3:2379/TCP",
+          "172.18.0.3:3306/TCP",
+          "172.18.0.3:443/TCP",
+          "172.18.0.3:6379/TCP",
+          "172.18.0.4:10250/TCP",
+          "172.18.0.4:22/TCP",
+          "172.18.0.4:2379/TCP",
+          "172.18.0.4:3306/TCP",
+          "172.18.0.4:443/TCP",
+          "172.18.0.4:6379/TCP",
+          "pbl-security/backend:10250/TCP",
+          "pbl-security/backend:22/TCP",
+          "pbl-security/backend:2379/TCP",
+          "pbl-security/backend:3306/TCP",
+          "pbl-security/backend:443/TCP",
+          "pbl-security/backend:6379/TCP",
+          "pbl-security/db:10250/TCP",
+          "pbl-security/db:22/TCP",
+          "pbl-security/db:2379/TCP",
+          "pbl-security/db:3306/TCP",
+          "pbl-security/db:443/TCP",
+          "pbl-security/db:6379/TCP"
+        ]
+      },
+      "first_seen": "2026-11-17T07:59:01.276",
+      "last_seen": "2026-11-17T07:59:33.634",
+      "rationale": "The workload-to-workload/port edge is absent from the declared service graph and the network policy denied it. A single event remains medium severity because misconfiguration can look identical to an attack.",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend attempted 30 non-baseline network path(s)"
+    },
+    {
+      "evidence": {
+        "attempt_count": 15,
+        "targets": [
+          "172.18.0.2:10250",
+          "172.18.0.2:22",
+          "172.18.0.2:2379",
+          "172.18.0.3:10250",
+          "172.18.0.3:22",
+          "172.18.0.3:2379",
+          "172.18.0.4:10250",
+          "172.18.0.4:22",
+          "172.18.0.4:2379",
+          "pbl-security/backend:10250",
+          "pbl-security/backend:22",
+          "pbl-security/backend:2379",
+          "pbl-security/db:10250",
+          "pbl-security/db:22",
+          "pbl-security/db:2379"
+        ]
+      },
+      "first_seen": "2026-11-17T07:59:01.276",
+      "last_seen": "2026-11-17T07:59:31.405",
+      "rationale": "The observed ports include kubelet, etcd, API, SSH, or IRC endpoints that are not part of this workload role's declared network behavior.",
+      "rule_id": "sensitive-service-probe",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend probed Kubernetes/administrative or C2-associated ports"
+    }
+  ],
+  "summary": {
+    "alert_count": 5,
+    "connection_attempts": 42,
+    "coverage": "complete",
+    "parse_errors": 0,
+    "parsed_flows": 943,
+    "telemetry_loss_markers": 0
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "case_id": "case-4e2c0fe3",
+  "observation_window": {
+    "start": "2026-11-17T07:46:03Z",
+    "end": "2026-11-17T07:46:08Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:46:06Z",
+      "last_seen": "2026-11-17T07:46:06Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:46:06Z",
+      "last_seen": "2026-11-17T07:46:06Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "REDIRECTED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:46:06Z",
+      "last_seen": "2026-11-17T07:46:06Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": "not_collected",
+    "change_tickets": "not_collected",
+    "kubernetes_audit": "not_collected",
+    "runtime_process": "not_collected"
+  }
+}

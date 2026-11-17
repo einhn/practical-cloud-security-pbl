@@ -1,0 +1,44 @@
+{
+  "candidates": [
+    {
+      "disposition": "semantic-review-required",
+      "evidence": {
+        "destination": "pbl-security/backend",
+        "headers": [
+          {
+            "key": ":scheme",
+            "value": "http"
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          },
+          {
+            "key": "User-Agent",
+            "value": "curl/8.11.1"
+          },
+          {
+            "key": "X-Envoy-Internal",
+            "value": "true"
+          },
+          {
+            "key": "X-Pbl-Simulated-Action",
+            "value": "credential-read"
+          }
+        ],
+        "method": "GET",
+        "path": "/pbl/simulated-credential-read",
+        "source": "pbl-security/frontend",
+        "time": "2026-11-17T08:07:43.860457317Z"
+      },
+      "evidence_id": "dc0ed1db99ace1dc",
+      "reason": "http-route-outside-declared-baseline"
+    }
+  ],
+  "summary": {
+    "parse_errors": 0,
+    "parsed_http_requests": 1,
+    "semantic_review_candidates": 1
+  },
+  "warning": "A route deviation is not proof of attack. Correlate it with application ownership, change approval, Kubernetes Audit, and runtime lineage."
+}

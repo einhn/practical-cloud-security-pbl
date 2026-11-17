@@ -1,0 +1,19 @@
+{
+  "allowed_http_routes": [
+    {
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "methods": ["GET"],
+      "paths": ["/"]
+    }
+  ],
+  "redacted_header_names": [
+    "authorization",
+    "cookie",
+    "proxy-authorization",
+    "set-cookie"
+  ],
+  "ignored_header_names": [
+    "x-request-id"
+  ]
+}

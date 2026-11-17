@@ -1,0 +1,106 @@
+{
+  "case_id": "case-85511611",
+  "observation_window": {
+    "start": "2026-11-17T07:50:18Z",
+    "end": "2026-11-17T07:50:22Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/backend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:50:19Z",
+      "last_seen": "2026-11-17T07:50:19Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/backend",
+      "destination": "pbl-security/db",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:50:19Z",
+      "last_seen": "2026-11-17T07:50:19Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 6,
+      "first_seen": "2026-11-17T07:50:19Z",
+      "last_seen": "2026-11-17T07:50:20Z"
+    },
+    {
+      "evidence_id": "edge-4",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:50:19Z",
+      "last_seen": "2026-11-17T07:50:20Z"
+    },
+    {
+      "evidence_id": "edge-5",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "REDIRECTED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:50:19Z",
+      "last_seen": "2026-11-17T07:50:20Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": {
+      "http_requests_observed": 4,
+      "allowlisted_routes": [
+        "pbl-security/frontend -> pbl-security/backend: GET /"
+      ],
+      "deviations": []
+    },
+    "change_tickets": [
+      {
+        "ticket": "[CHG-9654] 운영 점검: frontend에서 DB TCP/80 reachability 확인 (차단 기대). 담당 ops-oncall, 승인 sec-lead.",
+        "window_start": "2026-11-16T07:24:18Z",
+        "window_end": "2026-11-16T07:54:18Z"
+      },
+      {
+        "ticket": "[CHG-3645] CoreDNS 캐시 설정 변경 검토 (적용 없음). 담당 platform-team.",
+        "window_start": "2026-11-17T07:30:18Z",
+        "window_end": "2026-11-17T08:30:18Z"
+      },
+      {
+        "ticket": "[CHG-1378] ext-api 연동 키 교체, 외부 API 호출 실패 모니터링. 담당 app-team.",
+        "window_start": "2026-11-17T07:33:18Z",
+        "window_end": "2026-11-17T08:33:18Z"
+      }
+    ],
+    "kubernetes_audit": "not_collected (every action in this lab uses the same admin identity)",
+    "runtime_process": "not_collected"
+  }
+}

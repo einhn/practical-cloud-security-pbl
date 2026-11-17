@@ -1,0 +1,2 @@
+[benign_rollout] Restart frontend and verify the declared service path.
+Rolling-update traffic completed on the normal frontend -> backend edge.

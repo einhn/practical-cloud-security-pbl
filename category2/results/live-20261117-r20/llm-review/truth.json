@@ -1,0 +1,200 @@
+[
+  {
+    "case_id": "case-18110cbc",
+    "scenario": "benign_maintenance_probe",
+    "truth_role": "benign",
+    "run_id": "002-benign_maintenance_probe-r4"
+  },
+  {
+    "case_id": "case-1c828d28",
+    "scenario": "abnormal_1",
+    "truth_role": "attack",
+    "run_id": "006-abnormal_1-r17"
+  },
+  {
+    "case_id": "case-23b47e66",
+    "scenario": "normal",
+    "truth_role": "benign",
+    "run_id": "036-normal-r13"
+  },
+  {
+    "case_id": "case-25e859f0",
+    "scenario": "benign_external_api",
+    "truth_role": "benign",
+    "run_id": "029-benign_external_api-r3"
+  },
+  {
+    "case_id": "case-301c1a6c",
+    "scenario": "abnormal_3",
+    "truth_role": "attack",
+    "run_id": "010-abnormal_3-r14"
+  },
+  {
+    "case_id": "case-313a0d2f",
+    "scenario": "abnormal_1",
+    "truth_role": "attack",
+    "run_id": "032-abnormal_1-r1"
+  },
+  {
+    "case_id": "case-3ae20b5e",
+    "scenario": "benign_external_api",
+    "truth_role": "benign",
+    "run_id": "028-benign_external_api-r8"
+  },
+  {
+    "case_id": "case-416a6bcb",
+    "scenario": "attack_allowed_path",
+    "truth_role": "attack",
+    "run_id": "013-attack_allowed_path-r10"
+  },
+  {
+    "case_id": "case-4e2c0fe3",
+    "scenario": "benign_rollout",
+    "truth_role": "benign",
+    "run_id": "004-benign_rollout-r1"
+  },
+  {
+    "case_id": "case-4e6653ca",
+    "scenario": "abnormal_1",
+    "truth_role": "attack",
+    "run_id": "038-abnormal_1-r2"
+  },
+  {
+    "case_id": "case-5da2b745",
+    "scenario": "attack_allowed_path",
+    "truth_role": "attack",
+    "run_id": "023-attack_allowed_path-r20"
+  },
+  {
+    "case_id": "case-6899d7b1",
+    "scenario": "benign_maintenance_probe",
+    "truth_role": "benign",
+    "run_id": "008-benign_maintenance_probe-r13"
+  },
+  {
+    "case_id": "case-813492e1",
+    "scenario": "abnormal_5_beacon",
+    "truth_role": "attack",
+    "run_id": "047-abnormal_5_beacon-r6"
+  },
+  {
+    "case_id": "case-84472a0d",
+    "scenario": "abnormal_4",
+    "truth_role": "attack",
+    "run_id": "024-abnormal_4-r3"
+  },
+  {
+    "case_id": "case-85511611",
+    "scenario": "normal",
+    "truth_role": "benign",
+    "run_id": "020-normal-r5"
+  },
+  {
+    "case_id": "case-9174fce5",
+    "scenario": "abnormal_3",
+    "truth_role": "attack",
+    "run_id": "017-abnormal_3-r17"
+  },
+  {
+    "case_id": "case-96dc120a",
+    "scenario": "abnormal_4",
+    "truth_role": "attack",
+    "run_id": "031-abnormal_4-r16"
+  },
+  {
+    "case_id": "case-a18fd66a",
+    "scenario": "abnormal_5_beacon",
+    "truth_role": "attack",
+    "run_id": "033-abnormal_5_beacon-r4"
+  },
+  {
+    "case_id": "case-aa5b19cf",
+    "scenario": "normal_burst",
+    "truth_role": "benign",
+    "run_id": "014-normal_burst-r11"
+  },
+  {
+    "case_id": "case-b066daf9",
+    "scenario": "abnormal_4",
+    "truth_role": "attack",
+    "run_id": "043-abnormal_4-r10"
+  },
+  {
+    "case_id": "case-b08fad40",
+    "scenario": "abnormal_2",
+    "truth_role": "attack",
+    "run_id": "012-abnormal_2-r15"
+  },
+  {
+    "case_id": "case-b5cf6190",
+    "scenario": "abnormal_2",
+    "truth_role": "attack",
+    "run_id": "001-abnormal_2-r18"
+  },
+  {
+    "case_id": "case-c09b9ce3",
+    "scenario": "abnormal_2",
+    "truth_role": "attack",
+    "run_id": "015-abnormal_2-r10"
+  },
+  {
+    "case_id": "case-c25b7d26",
+    "scenario": "benign_rollout",
+    "truth_role": "benign",
+    "run_id": "007-benign_rollout-r10"
+  },
+  {
+    "case_id": "case-c427f9c3",
+    "scenario": "normal_burst",
+    "truth_role": "benign",
+    "run_id": "005-normal_burst-r5"
+  },
+  {
+    "case_id": "case-d8b5ae7f",
+    "scenario": "abnormal_3",
+    "truth_role": "attack",
+    "run_id": "042-abnormal_3-r15"
+  },
+  {
+    "case_id": "case-e93ca585",
+    "scenario": "benign_maintenance_probe",
+    "truth_role": "benign",
+    "run_id": "025-benign_maintenance_probe-r20"
+  },
+  {
+    "case_id": "case-f308ff34",
+    "scenario": "benign_external_api",
+    "truth_role": "benign",
+    "run_id": "009-benign_external_api-r5"
+  },
+  {
+    "case_id": "case-fa40b616",
+    "scenario": "benign_rollout",
+    "truth_role": "benign",
+    "run_id": "011-benign_rollout-r8"
+  },
+  {
+    "case_id": "case-fd25b289",
+    "scenario": "attack_allowed_path",
+    "truth_role": "attack",
+    "run_id": "003-attack_allowed_path-r16"
+  },
+  {
+    "case_id": "case-fdf967fd",
+    "scenario": "abnormal_5_beacon",
+    "truth_role": "attack",
+    "run_id": "048-abnormal_5_beacon-r11"
+  },
+  {
+    "case_id": "case-ffc93a26",
+    "scenario": "normal_burst",
+    "truth_role": "benign",
+    "run_id": "016-normal_burst-r13"
+  },
+  {
+    "case_id": "case-ffe76b39",
+    "scenario": "normal",
+    "truth_role": "benign",
+    "run_id": "022-normal-r18"
+  }
+]

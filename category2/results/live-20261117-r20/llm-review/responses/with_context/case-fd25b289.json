@@ -1,0 +1,31 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.83,
+  "evidence_ids": [
+    "edge-2",
+    "edge-3",
+    "l7-1"
+  ],
+  "alternative_hypothesis": "The request was an unauthorized probe for credential access.",
+  "missing_context": [
+    "Backend logs showing what the simulated credential-read endpoint did and returned",
+    "The purpose and authorization of the request",
+    "Source process identity"
+  ],
+  "rationale": "The frontend sent a request outside the allowlisted route with a header indicating a simulated credential read. The evidence does not establish whether this was an authorized test or an unauthorized probe, or whether any credentials were accessed.",
+  "case_id": "case-fd25b289",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 9.187,
+    "usage": {
+      "prompt_tokens": 1337,
+      "completion_tokens": 379,
+      "total_tokens": 1716
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:59Z"
+  }
+}

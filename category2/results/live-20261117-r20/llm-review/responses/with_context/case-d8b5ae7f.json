@@ -1,0 +1,40 @@
+{
+  "verdict": "attack",
+  "confidence": 0.98,
+  "evidence_ids": [
+    "ev-2a1b36e5",
+    "edge-3",
+    "edge-9",
+    "edge-15",
+    "edge-20",
+    "edge-22",
+    "edge-25",
+    "edge-26",
+    "edge-28",
+    "edge-31",
+    "CHG-3987",
+    "CHG-5619",
+    "CHG-8945"
+  ],
+  "alternative_hypothesis": "An authorized security or connectivity scan was conducted without a matching recorded ticket.",
+  "missing_context": [
+    "Runtime process logs identifying the scanning process",
+    "Confirmation of any separately authorized scan"
+  ],
+  "rationale": "The frontend systematically probed six non-baseline ports across five destinations, including administrative ports; the attempts were dropped. None of the tickets authorizes this activity: CHG-5619 covers frontend-to-DB TCP/80 on the previous day, while the others concern unrelated changes.",
+  "case_id": "case-d8b5ae7f",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.991,
+    "usage": {
+      "prompt_tokens": 5095,
+      "completion_tokens": 345,
+      "total_tokens": 5440
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:50Z"
+  }
+}

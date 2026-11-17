@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "parsed_flows": 710,
+    "connection_attempts": 56,
+    "telemetry_loss_markers": 0,
+    "parse_errors": 0,
+    "alert_count": 0,
+    "coverage": "complete"
+  },
+  "alerts": []
+}

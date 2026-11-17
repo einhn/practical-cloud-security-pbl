@@ -1,0 +1,2 @@
+[benign_maintenance_probe] Authorized operator checks frontend -> db reachability.
+The probe was authorized but is indistinguishable from abnormal_1 at L3/L4.

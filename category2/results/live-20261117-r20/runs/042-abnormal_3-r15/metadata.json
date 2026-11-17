@@ -1,0 +1,42 @@
+{
+  "alert_count": 5,
+  "artifact_dir": "runs/042-abnormal_3-r15",
+  "capture_ended_at": "2026-11-17T07:55:33.452921Z",
+  "connection_attempts": 42,
+  "description": "Multi-target probing of administrative and sensitive ports",
+  "detection_latency_seconds": 2.194,
+  "duration_seconds": 47.896,
+  "expected_rule_hits": [
+    "port-sweep",
+    "sensitive-service-probe"
+  ],
+  "expected_rules": [
+    "port-sweep",
+    "sensitive-service-probe"
+  ],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "correlated-lateral-movement",
+    "destination-fanout",
+    "path-violation",
+    "port-sweep",
+    "sensitive-service-probe"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 1045,
+  "predicted_attack": true,
+  "repetition": 15,
+  "run_id": "042-abnormal_3-r15",
+  "scenario": "abnormal_3",
+  "scenario_ended_at": "2026-11-17T07:55:31.452833Z",
+  "script_exit": 0,
+  "sequence": 42,
+  "started_at": "2026-11-17T07:54:43.556938Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "attack",
+  "valid": true
+}

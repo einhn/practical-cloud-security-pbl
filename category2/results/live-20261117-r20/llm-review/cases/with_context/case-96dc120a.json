@@ -1,0 +1,279 @@
+{
+  "case_id": "case-96dc120a",
+  "observation_window": {
+    "start": "2026-11-17T07:52:46Z",
+    "end": "2026-11-17T07:53:02Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [
+    {
+      "evidence_id": "ev-6f117ba8",
+      "rule_id": "cloud-metadata-access",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:52:46.957",
+      "last_seen": "2026-11-17T07:52:54.767",
+      "summary": "pbl-security/frontend attempted to access a cloud metadata endpoint",
+      "evidence": {
+        "targets": [
+          "169.254.169.254",
+          "169.254.170.2"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-0eb0adab",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:52:46.957",
+      "last_seen": "2026-11-17T07:52:59.228",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence",
+      "evidence": {
+        "constituent_rules": [
+          "path-violation",
+          "port-sweep",
+          "sensitive-service-probe"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-c6affecc",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:52:46.957",
+      "last_seen": "2026-11-17T07:52:59.228",
+      "summary": "pbl-security/frontend attempted 12 non-baseline network path(s)",
+      "evidence": {
+        "blocked_syn_or_datagram_count": 12,
+        "targets": [
+          "169.254.169.254:443/TCP",
+          "169.254.169.254:6667/TCP",
+          "169.254.169.254:6697/TCP",
+          "169.254.169.254:80/TCP",
+          "169.254.170.2:443/TCP",
+          "169.254.170.2:6667/TCP",
+          "169.254.170.2:6697/TCP",
+          "169.254.170.2:80/TCP",
+          "192.0.2.10:443/TCP",
+          "192.0.2.10:6667/TCP",
+          "192.0.2.10:6697/TCP",
+          "192.0.2.10:80/TCP"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-dd27a4fb",
+      "rule_id": "port-sweep",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:52:46.957",
+      "last_seen": "2026-11-17T07:52:59.228",
+      "summary": "pbl-security/frontend probed 4 destination ports in 15s",
+      "evidence": {
+        "attempt_count": 12,
+        "ports": [
+          80,
+          443,
+          6667,
+          6697
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-f84716d9",
+      "rule_id": "sensitive-service-probe",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:52:49.187",
+      "last_seen": "2026-11-17T07:52:59.228",
+      "summary": "pbl-security/frontend probed Kubernetes/administrative or C2-associated ports",
+      "evidence": {
+        "attempt_count": 6,
+        "targets": [
+          "169.254.169.254:6667",
+          "169.254.169.254:6697",
+          "169.254.170.2:6667",
+          "169.254.170.2:6697",
+          "192.0.2.10:6667",
+          "192.0.2.10:6697"
+        ]
+      }
+    }
+  ],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.169.254",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:46Z",
+      "last_seen": "2026-11-17T07:52:46Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.169.254",
+      "port": 443,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:48Z",
+      "last_seen": "2026-11-17T07:52:48Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.169.254",
+      "port": 6667,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:49Z",
+      "last_seen": "2026-11-17T07:52:49Z"
+    },
+    {
+      "evidence_id": "edge-4",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.169.254",
+      "port": 6697,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:50Z",
+      "last_seen": "2026-11-17T07:52:50Z"
+    },
+    {
+      "evidence_id": "edge-5",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.170.2",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:51Z",
+      "last_seen": "2026-11-17T07:52:51Z"
+    },
+    {
+      "evidence_id": "edge-6",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.170.2",
+      "port": 443,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:52Z",
+      "last_seen": "2026-11-17T07:52:52Z"
+    },
+    {
+      "evidence_id": "edge-7",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.170.2",
+      "port": 6667,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:53Z",
+      "last_seen": "2026-11-17T07:52:53Z"
+    },
+    {
+      "evidence_id": "edge-8",
+      "source": "pbl-security/frontend",
+      "destination": "169.254.170.2",
+      "port": 6697,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:54Z",
+      "last_seen": "2026-11-17T07:52:54Z"
+    },
+    {
+      "evidence_id": "edge-9",
+      "source": "pbl-security/frontend",
+      "destination": "192.0.2.10",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:55Z",
+      "last_seen": "2026-11-17T07:52:55Z"
+    },
+    {
+      "evidence_id": "edge-10",
+      "source": "pbl-security/frontend",
+      "destination": "192.0.2.10",
+      "port": 443,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:57Z",
+      "last_seen": "2026-11-17T07:52:57Z"
+    },
+    {
+      "evidence_id": "edge-11",
+      "source": "pbl-security/frontend",
+      "destination": "192.0.2.10",
+      "port": 6667,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:58Z",
+      "last_seen": "2026-11-17T07:52:58Z"
+    },
+    {
+      "evidence_id": "edge-12",
+      "source": "pbl-security/frontend",
+      "destination": "192.0.2.10",
+      "port": 6697,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:52:59Z",
+      "last_seen": "2026-11-17T07:52:59Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": {
+      "http_requests_observed": 0,
+      "allowlisted_routes": [
+        "pbl-security/frontend -> pbl-security/backend: GET /"
+      ],
+      "deviations": []
+    },
+    "change_tickets": [
+      {
+        "ticket": "[CHG-9137] ext-api 연동 키 교체, 외부 API 호출 실패 모니터링. 담당 app-team.",
+        "window_start": "2026-11-17T07:40:46Z",
+        "window_end": "2026-11-17T08:40:46Z"
+      },
+      {
+        "ticket": "[CHG-8474] 운영 점검: frontend에서 DB TCP/80 reachability 확인 (차단 기대). 담당 ops-oncall, 승인 sec-lead.",
+        "window_start": "2026-11-16T06:38:46Z",
+        "window_end": "2026-11-16T07:08:46Z"
+      },
+      {
+        "ticket": "[CHG-6737] CoreDNS 캐시 설정 변경 검토 (적용 없음). 담당 platform-team.",
+        "window_start": "2026-11-17T07:23:46Z",
+        "window_end": "2026-11-17T08:23:46Z"
+      }
+    ],
+    "kubernetes_audit": "not_collected (every action in this lab uses the same admin identity)",
+    "runtime_process": "not_collected"
+  }
+}

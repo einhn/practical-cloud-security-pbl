@@ -1,0 +1,36 @@
+{
+  "verdict": "attack",
+  "confidence": 0.92,
+  "evidence_ids": [
+    "ev-9efc3d14",
+    "edge-3",
+    "edge-9",
+    "edge-15",
+    "edge-22",
+    "edge-25",
+    "edge-28",
+    "edge-31"
+  ],
+  "alternative_hypothesis": "An authorized security test initiated a port scan from the frontend.",
+  "missing_context": [
+    "Change tickets or other authorization for the scan",
+    "Frontend runtime process logs",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend systematically probed five destinations on six non-baseline ports, including administrative ports 2379 and 10250, supporting a reconnaissance attempt. The observed probes were dropped, and the unavailable authorization and process records leave an authorized test as a competing explanation.",
+  "case_id": "case-9174fce5",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.729,
+    "usage": {
+      "prompt_tokens": 4846,
+      "completion_tokens": 333,
+      "total_tokens": 5179
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:36Z"
+  }
+}

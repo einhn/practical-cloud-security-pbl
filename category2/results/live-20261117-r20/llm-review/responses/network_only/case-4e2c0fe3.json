@@ -1,0 +1,30 @@
+{
+  "verdict": "benign",
+  "confidence": 0.92,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "A compromised frontend could use an expected connection for malicious activity.",
+  "missing_context": [
+    "L7 HTTP logs",
+    "Runtime process logs"
+  ],
+  "rationale": "All observed connections match the declared service graph, and telemetry reports no lost events or parse errors. The network evidence does not reveal the HTTP content or originating processes.",
+  "case_id": "case-4e2c0fe3",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 4.75,
+    "usage": {
+      "prompt_tokens": 939,
+      "completion_tokens": 161,
+      "total_tokens": 1100
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:27Z"
+  }
+}

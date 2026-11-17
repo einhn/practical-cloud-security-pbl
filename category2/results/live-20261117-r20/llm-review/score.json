@@ -1,0 +1,102 @@
+{
+  "network_only": {
+    "cases": 33,
+    "abstained": 12,
+    "decided": 21,
+    "decided_correct": 18,
+    "attack_called_on_benign": 0,
+    "benign_called_on_attack": 3,
+    "unsupported_citations": 0,
+    "models_reported": [
+      "gpt-6.1-terra"
+    ],
+    "mean_latency_seconds": 5.78,
+    "total_tokens": 58400,
+    "per_scenario": {
+      "abnormal_1": {
+        "insufficient_evidence": 3
+      },
+      "abnormal_2": {
+        "insufficient_evidence": 3
+      },
+      "abnormal_3": {
+        "attack": 3
+      },
+      "abnormal_4": {
+        "attack": 3
+      },
+      "abnormal_5_beacon": {
+        "insufficient_evidence": 3
+      },
+      "attack_allowed_path": {
+        "benign": 3
+      },
+      "benign_external_api": {
+        "benign": 3
+      },
+      "benign_maintenance_probe": {
+        "insufficient_evidence": 3
+      },
+      "benign_rollout": {
+        "benign": 3
+      },
+      "normal": {
+        "benign": 3
+      },
+      "normal_burst": {
+        "benign": 3
+      }
+    }
+  },
+  "with_context": {
+    "cases": 33,
+    "abstained": 9,
+    "decided": 24,
+    "decided_correct": 24,
+    "attack_called_on_benign": 0,
+    "benign_called_on_attack": 0,
+    "unsupported_citations": 0,
+    "models_reported": [
+      "gpt-6.1-terra"
+    ],
+    "mean_latency_seconds": 6.88,
+    "total_tokens": 69559,
+    "per_scenario": {
+      "abnormal_1": {
+        "insufficient_evidence": 3
+      },
+      "abnormal_2": {
+        "attack": 3
+      },
+      "abnormal_3": {
+        "attack": 3
+      },
+      "abnormal_4": {
+        "attack": 3
+      },
+      "abnormal_5_beacon": {
+        "insufficient_evidence": 3
+      },
+      "attack_allowed_path": {
+        "attack": 2,
+        "insufficient_evidence": 1
+      },
+      "benign_external_api": {
+        "benign": 3
+      },
+      "benign_maintenance_probe": {
+        "insufficient_evidence": 2,
+        "benign": 1
+      },
+      "benign_rollout": {
+        "benign": 3
+      },
+      "normal": {
+        "benign": 3
+      },
+      "normal_burst": {
+        "benign": 3
+      }
+    }
+  }
+}

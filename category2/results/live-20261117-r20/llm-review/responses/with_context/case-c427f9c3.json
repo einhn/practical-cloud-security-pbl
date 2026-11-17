@@ -1,0 +1,30 @@
+{
+  "verdict": "benign",
+  "confidence": 0.95,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "A compromised frontend generated requests over permitted routes.",
+  "missing_context": [
+    "Runtime process activity",
+    "Application request origins"
+  ],
+  "rationale": "All observed edges match the declared service graph, and the observed HTTP requests have no allowlist deviations. The evidence supports expected activity, although permitted traffic alone cannot rule out misuse.",
+  "case_id": "case-c427f9c3",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.314,
+    "usage": {
+      "prompt_tokens": 1192,
+      "completion_tokens": 172,
+      "total_tokens": 1364
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:47Z"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "verdict": "attack",
+  "confidence": 0.98,
+  "evidence_ids": [
+    "ev-9efc3d14",
+    "edge-3",
+    "edge-6",
+    "edge-22",
+    "edge-25",
+    "edge-28",
+    "edge-31",
+    "CHG-9858"
+  ],
+  "alternative_hypothesis": "An undocumented authorized security test generated the port sweep.",
+  "missing_context": [
+    "Frontend runtime process and command-line logs",
+    "Authorization or test records covering the observed targets, ports, and time"
+  ],
+  "rationale": "Frontend systematically probed six non-baseline ports across five destinations, including administrative ports; the observed attempts were dropped. CHG-9858 covered only a frontend-to-DB TCP/80 check on the previous day, so it does not authorize this sweep.",
+  "case_id": "case-9174fce5",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.385,
+    "usage": {
+      "prompt_tokens": 5096,
+      "completion_tokens": 269,
+      "total_tokens": 5365
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:33Z"
+  }
+}

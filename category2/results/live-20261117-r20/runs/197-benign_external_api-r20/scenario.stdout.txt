@@ -1,0 +1,9 @@
+[benign_external_api] 8 user-driven API calls, mean gap 4s.
+api gap=12.000s
+api gap=7.172s
+api gap=0.486s
+api gap=0.697s
+api gap=12.000s
+api gap=1.094s
+api gap=0.558s
+API calls completed on the same declared edge as abnormal_5.

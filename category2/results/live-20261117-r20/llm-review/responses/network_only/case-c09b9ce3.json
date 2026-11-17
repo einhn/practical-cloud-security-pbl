@@ -1,0 +1,35 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.83,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-5",
+    "edge-7",
+    "ev-43399d21"
+  ],
+  "alternative_hypothesis": "A compromised frontend attempted reconnaissance and unauthorized access to the database.",
+  "missing_context": [
+    "Runtime process logs identifying what initiated the connections",
+    "Mappings for the three IP destinations",
+    "Change tickets or deployment details explaining the connections",
+    "HTTP logs and Kubernetes audit logs"
+  ],
+  "rationale": "The frontend attempted non-baseline connections to three IP addresses and the database, but all were dropped. The pattern is suspicious, though misconfiguration or retries remain plausible without process or change context.",
+  "case_id": "case-c09b9ce3",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.01,
+    "usage": {
+      "prompt_tokens": 1768,
+      "completion_tokens": 306,
+      "total_tokens": 2074
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:49Z"
+  }
+}

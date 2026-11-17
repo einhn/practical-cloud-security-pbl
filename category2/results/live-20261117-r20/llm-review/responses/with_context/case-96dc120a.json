@@ -1,0 +1,36 @@
+{
+  "verdict": "attack",
+  "confidence": 0.95,
+  "evidence_ids": [
+    "ev-c6affecc",
+    "edge-1",
+    "edge-3",
+    "edge-5",
+    "edge-7",
+    "edge-9",
+    "edge-11",
+    "CHG-9137",
+    "CHG-8474"
+  ],
+  "alternative_hypothesis": "An undocumented authorized security test generated the probes.",
+  "missing_context": [
+    "Runtime process and command-line logs",
+    "Authorization or test records for the observed targets and ports"
+  ],
+  "rationale": "The frontend systematically probed metadata endpoints and another address across four ports outside its declared service graph; all attempts were dropped. The supplied tickets do not authorize this activity: CHG-9137 concerns ext-api monitoring, while CHG-8474 covers a different target and falls outside the observation window.",
+  "case_id": "case-96dc120a",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.796,
+    "usage": {
+      "prompt_tokens": 2915,
+      "completion_tokens": 325,
+      "total_tokens": 3240
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:34Z"
+  }
+}

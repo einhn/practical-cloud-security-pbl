@@ -1,0 +1,65 @@
+{
+  "alerts": [
+    {
+      "evidence": {
+        "constituent_rules": [
+          "destination-fanout",
+          "path-violation"
+        ]
+      },
+      "first_seen": "2026-11-17T07:48:42.524",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "rationale": "Multiple weak signals occur for the same Kubernetes identity within one correlation window. This sequence is more discriminative than any isolated drop.",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence"
+    },
+    {
+      "evidence": {
+        "attempt_count": 30,
+        "destinations": [
+          "172.18.0.2",
+          "172.18.0.3",
+          "172.18.0.4",
+          "kube-system/coredns",
+          "pbl-security/backend",
+          "pbl-security/db"
+        ]
+      },
+      "first_seen": "2026-11-17T07:48:42.524",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "rationale": "Normal service calls stay on a small declared dependency graph. Rapid fan-out across workload and infrastructure identities is consistent with discovery.",
+      "rule_id": "destination-fanout",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend contacted 4 destinations in 15s"
+    },
+    {
+      "evidence": {
+        "blocked_syn_or_datagram_count": 10,
+        "targets": [
+          "172.18.0.2:80/TCP",
+          "172.18.0.3:80/TCP",
+          "172.18.0.4:80/TCP",
+          "pbl-security/db:80/TCP"
+        ]
+      },
+      "first_seen": "2026-11-17T07:48:42.758",
+      "last_seen": "2026-11-17T07:48:55.711",
+      "rationale": "The workload-to-workload/port edge is absent from the declared service graph and the network policy denied it. A single event remains medium severity because misconfiguration can look identical to an attack.",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend attempted 4 non-baseline network path(s)"
+    }
+  ],
+  "summary": {
+    "alert_count": 3,
+    "connection_attempts": 30,
+    "coverage": "complete",
+    "parse_errors": 0,
+    "parsed_flows": 413,
+    "telemetry_loss_markers": 0
+  }
+}

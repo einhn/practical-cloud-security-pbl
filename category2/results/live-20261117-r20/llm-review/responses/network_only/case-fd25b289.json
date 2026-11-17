@@ -1,0 +1,31 @@
+{
+  "verdict": "benign",
+  "confidence": 0.9,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "Malicious activity used permitted connections or an unauthorized redirection.",
+  "missing_context": [
+    "HTTP logs",
+    "Redirection configuration and destination",
+    "Runtime process logs"
+  ],
+  "rationale": "All observed workload edges match the declared service graph, and capture reports no lost events or parse errors. The redirected connection is not, by itself, evidence of malicious activity.",
+  "case_id": "case-fd25b289",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.276,
+    "usage": {
+      "prompt_tokens": 936,
+      "completion_tokens": 189,
+      "total_tokens": 1125
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:57Z"
+  }
+}

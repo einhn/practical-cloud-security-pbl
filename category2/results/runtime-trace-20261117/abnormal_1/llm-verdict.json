@@ -1,0 +1,31 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.84,
+  "evidence_ids": [
+    "ev-1",
+    "edge-2",
+    "rt-1"
+  ],
+  "alternative_hypothesis": "An unauthorized actor used wget to probe the database from the frontend container.",
+  "missing_context": [
+    "Kubernetes audit logs identifying who initiated the process",
+    "Change tickets or operational records establishing whether the test was authorized",
+    "Application or operator context explaining the command"
+  ],
+  "rationale": "A wget process in the frontend attempted to reach the database directly, outside the declared service graph; the connection attempts were dropped. The evidence does not establish whether this was an authorized diagnostic test or an unauthorized probe.",
+  "case_id": "trace-b838b352",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.62,
+    "usage": {
+      "prompt_tokens": 1115,
+      "completion_tokens": 234,
+      "total_tokens": 1349
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T06:30:47Z"
+  }
+}

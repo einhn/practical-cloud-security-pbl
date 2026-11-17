@@ -1,0 +1,30 @@
+{
+  "verdict": "benign",
+  "confidence": 0.91,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2"
+  ],
+  "alternative_hypothesis": "A compromised frontend used permitted DNS and external API connections for malicious activity.",
+  "missing_context": [
+    "DNS query logs",
+    "HTTP request logs",
+    "Runtime process telemetry"
+  ],
+  "rationale": "Both observed connection types match the declared service graph, and capture telemetry reports no lost events or parse errors. Application-layer content was not observed, so misuse of permitted connections cannot be ruled out.",
+  "case_id": "case-f308ff34",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.527,
+    "usage": {
+      "prompt_tokens": 1100,
+      "completion_tokens": 218,
+      "total_tokens": 1318
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:52Z"
+  }
+}

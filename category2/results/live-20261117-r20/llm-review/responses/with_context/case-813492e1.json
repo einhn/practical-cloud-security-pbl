@@ -1,0 +1,31 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "ev-421c273f",
+    "edge-2",
+    "CHG-6109"
+  ],
+  "alternative_hypothesis": "The periodic connections could be malicious beaconing over an otherwise expected service edge.",
+  "missing_context": [
+    "HTTP request details and API response or failure logs",
+    "Frontend runtime process telemetry",
+    "Ticket scope specifying the authorized workload and port"
+  ],
+  "rationale": "Eight regularly spaced connections used a declared frontend-to-ext-api edge, but their purpose is unknown. CHG-6109 overlaps the observation window and concerns API failure monitoring, yet does not specify the workload or port needed to establish authorization.",
+  "case_id": "case-813492e1",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 8.965,
+    "usage": {
+      "prompt_tokens": 1294,
+      "completion_tokens": 389,
+      "total_tokens": 1683
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:28Z"
+  }
+}

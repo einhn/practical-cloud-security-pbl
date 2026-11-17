@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.9,
+  "evidence_ids": [
+    "edge-2",
+    "ev-aa6a861c",
+    "CHG-9219"
+  ],
+  "alternative_hypothesis": "An unauthorized actor attempted to reach the database directly from the frontend.",
+  "missing_context": [
+    "Frontend runtime process logs identifying the source of the attempts",
+    "An applicable change record or operator confirmation for the observation window"
+  ],
+  "rationale": "Three frontend-to-database TCP/80 attempts were blocked and were outside the declared service graph. CHG-9219 describes the same reachability check but expired the previous day, so it does not authorize this observation; an unrecorded diagnostic or misconfiguration remains plausible.",
+  "case_id": "case-313a0d2f",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.579,
+    "usage": {
+      "prompt_tokens": 1225,
+      "completion_tokens": 223,
+      "total_tokens": 1448
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:13Z"
+  }
+}

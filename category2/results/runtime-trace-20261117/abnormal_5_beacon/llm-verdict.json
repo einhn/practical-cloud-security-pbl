@@ -1,0 +1,31 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.85,
+  "evidence_ids": [
+    "ev-1",
+    "edge-2",
+    "rt-1"
+  ],
+  "alternative_hypothesis": "A compromised process is using the permitted API connection for periodic beaconing.",
+  "missing_context": [
+    "Frontend process configuration and provenance",
+    "HTTP request and response logs",
+    "Relevant change tickets or authorization"
+  ],
+  "rationale": "A shell-launched curl process made eight regularly spaced connections to a declared API edge, using a heartbeat-like path. This could be expected polling or unauthorized beaconing; the available evidence does not distinguish them.",
+  "case_id": "trace-5b80a282",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.013,
+    "usage": {
+      "prompt_tokens": 1248,
+      "completion_tokens": 225,
+      "total_tokens": 1473
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T06:30:53Z"
+  }
+}

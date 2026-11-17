@@ -1,0 +1,33 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.78,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-5",
+    "edge-7"
+  ],
+  "alternative_hypothesis": "A compromised frontend attempted reconnaissance and direct database access.",
+  "missing_context": [
+    "Change tickets or other authorization records",
+    "Runtime process logs identifying the source of the attempts",
+    "Ownership and purpose of the three IP destinations"
+  ],
+  "rationale": "The frontend repeatedly attempted four non-baseline paths, including a direct path to the database, but all were dropped. Reconnaissance is plausible, as are misconfiguration or authorized testing; the available evidence does not distinguish them.",
+  "case_id": "case-b08fad40",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.425,
+    "usage": {
+      "prompt_tokens": 1766,
+      "completion_tokens": 314,
+      "total_tokens": 2080
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:46Z"
+  }
+}

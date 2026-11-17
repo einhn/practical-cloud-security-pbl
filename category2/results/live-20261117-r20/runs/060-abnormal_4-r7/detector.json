@@ -1,0 +1,107 @@
+{
+  "alerts": [
+    {
+      "evidence": {
+        "targets": [
+          "169.254.169.254",
+          "169.254.170.2"
+        ]
+      },
+      "first_seen": "2026-11-17T08:00:16.744",
+      "last_seen": "2026-11-17T08:00:24.552",
+      "rationale": "Cloud metadata access from this workload is not required by the application and is a known credential-access step in Hildegard and later cloud-native intrusions.",
+      "rule_id": "cloud-metadata-access",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend attempted to access a cloud metadata endpoint"
+    },
+    {
+      "evidence": {
+        "constituent_rules": [
+          "path-violation",
+          "port-sweep",
+          "sensitive-service-probe"
+        ]
+      },
+      "first_seen": "2026-11-17T08:00:16.744",
+      "last_seen": "2026-11-17T08:00:29.012",
+      "rationale": "Multiple weak signals occur for the same Kubernetes identity within one correlation window. This sequence is more discriminative than any isolated drop.",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence"
+    },
+    {
+      "evidence": {
+        "blocked_syn_or_datagram_count": 12,
+        "targets": [
+          "169.254.169.254:443/TCP",
+          "169.254.169.254:6667/TCP",
+          "169.254.169.254:6697/TCP",
+          "169.254.169.254:80/TCP",
+          "169.254.170.2:443/TCP",
+          "169.254.170.2:6667/TCP",
+          "169.254.170.2:6697/TCP",
+          "169.254.170.2:80/TCP",
+          "192.0.2.10:443/TCP",
+          "192.0.2.10:6667/TCP",
+          "192.0.2.10:6697/TCP",
+          "192.0.2.10:80/TCP"
+        ]
+      },
+      "first_seen": "2026-11-17T08:00:16.744",
+      "last_seen": "2026-11-17T08:00:29.012",
+      "rationale": "The workload-to-workload/port edge is absent from the declared service graph and the network policy denied it. A single event remains medium severity because misconfiguration can look identical to an attack.",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend attempted 12 non-baseline network path(s)"
+    },
+    {
+      "evidence": {
+        "attempt_count": 12,
+        "ports": [
+          80,
+          443,
+          6667,
+          6697
+        ]
+      },
+      "first_seen": "2026-11-17T08:00:16.744",
+      "last_seen": "2026-11-17T08:00:29.012",
+      "rationale": "A single workload role normally uses a small stable port set. A broad port fan-out over a short window is consistent with service and kubelet probing.",
+      "rule_id": "port-sweep",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend probed 4 destination ports in 15s"
+    },
+    {
+      "evidence": {
+        "attempt_count": 6,
+        "targets": [
+          "169.254.169.254:6667",
+          "169.254.169.254:6697",
+          "169.254.170.2:6667",
+          "169.254.170.2:6697",
+          "192.0.2.10:6667",
+          "192.0.2.10:6697"
+        ]
+      },
+      "first_seen": "2026-11-17T08:00:18.973",
+      "last_seen": "2026-11-17T08:00:29.012",
+      "rationale": "The observed ports include kubelet, etcd, API, SSH, or IRC endpoints that are not part of this workload role's declared network behavior.",
+      "rule_id": "sensitive-service-probe",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "summary": "pbl-security/frontend probed Kubernetes/administrative or C2-associated ports"
+    }
+  ],
+  "summary": {
+    "alert_count": 5,
+    "connection_attempts": 12,
+    "coverage": "complete",
+    "parse_errors": 0,
+    "parsed_flows": 281,
+    "telemetry_loss_markers": 0
+  }
+}

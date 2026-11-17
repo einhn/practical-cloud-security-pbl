@@ -1,0 +1,32 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "edge-2",
+    "ev-a5abc29a",
+    "CHG-3736",
+    "CHG-5278"
+  ],
+  "alternative_hypothesis": "The three dropped attempts were retransmissions from a single authorized segmentation check.",
+  "missing_context": [
+    "Confirmation that CHG-3736 covered TCP port 80",
+    "Packet-level details showing whether the attempts were retransmissions",
+    "Runtime process logs identifying the initiator"
+  ],
+  "rationale": "The frontend made three dropped attempts to reach the database on TCP/80, outside the declared service graph. CHG-3736 covers a direct-path check during the window but does not specify the port and calls for one attempt; CHG-5278 specifies TCP/80 but its window had expired.",
+  "case_id": "case-18110cbc",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 10.727,
+    "usage": {
+      "prompt_tokens": 1298,
+      "completion_tokens": 466,
+      "total_tokens": 1764
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:12Z"
+  }
+}

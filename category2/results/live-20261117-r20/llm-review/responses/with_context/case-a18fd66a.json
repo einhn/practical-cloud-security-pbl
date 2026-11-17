@@ -1,0 +1,31 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.85,
+  "evidence_ids": [
+    "ev-a50a3109",
+    "edge-2",
+    "CHG-2011"
+  ],
+  "alternative_hypothesis": "The periodic connections were legitimate monitoring associated with the ext-api integration key rotation.",
+  "missing_context": [
+    "Runtime process information",
+    "HTTP request details and application logs",
+    "Confirmation of the monitoring job's workload and port scope"
+  ],
+  "rationale": "Eight regularly spaced connections followed a declared service-graph edge, but their purpose is unknown. CHG-2011 covers ext-api key rotation and failure monitoring during the observation window, but does not specify the observed workload and port, so it cannot establish authorization.",
+  "case_id": "case-a18fd66a",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.168,
+    "usage": {
+      "prompt_tokens": 1294,
+      "completion_tokens": 299,
+      "total_tokens": 1593
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:34Z"
+  }
+}

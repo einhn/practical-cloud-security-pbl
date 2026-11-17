@@ -1,0 +1,2 @@
+[attack_allowed_path] Simulate an application-layer action on an allowed edge.
+No credential access occurs. L3/L4 sees only an allowed edge; optional Cilium L7 visibility records the HTTP path.

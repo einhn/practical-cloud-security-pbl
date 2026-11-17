@@ -1,0 +1,17 @@
+# local build output and editor files
+.generated/
+*.tmp
+.DS_Store
+__pycache__/
+*.pyc
+
+# secrets (BAZE_API_KEY for category2/analysis/llm_review.py)
+.env
+
+# internal notes, presentation sources and archived prototype runs
+docs/
+
+# hubble.stderr.txt is empty in every run (the CLI wrote nothing to stderr).
+# The raw Hubble captures (hubble.jsonl, about 0.8 MB per run, at most 2 MB) and the
+# per-run metadata and scenario output stay public so the detector can be re-run on them.
+category2/results/live-*/runs/*/hubble.stderr.txt

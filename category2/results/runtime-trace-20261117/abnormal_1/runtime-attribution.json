@@ -1,0 +1,24 @@
+[
+  {
+    "rule_id": "path-violation",
+    "severity": "high",
+    "source": "pbl-security/frontend",
+    "window": [
+      "2026-11-17T06:24:41.707",
+      "2026-11-17T06:24:43.778"
+    ],
+    "runtime_processes": [
+      {
+        "binary": "/bin/wget",
+        "arguments": "-qO- -T 3 http://db",
+        "container": "frontend",
+        "parent_binary": "/usr/local/sbin/runc",
+        "connects": 1,
+        "sockets": [
+          "10.244.1.3:59936 -> 10.96.163.32:80"
+        ]
+      }
+    ],
+    "attributed": true
+  }
+]

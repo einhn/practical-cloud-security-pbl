@@ -1,0 +1,38 @@
+{
+  "alert_count": 3,
+  "artifact_dir": "runs/128-abnormal_2-r19",
+  "capture_ended_at": "2026-11-17T08:18:01.392304Z",
+  "connection_attempts": 30,
+  "description": "Rapid destination fan-out across Pods and Services",
+  "detection_latency_seconds": 1.126,
+  "duration_seconds": 15.365,
+  "expected_rule_hits": [
+    "destination-fanout"
+  ],
+  "expected_rules": [
+    "destination-fanout"
+  ],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "correlated-lateral-movement",
+    "destination-fanout",
+    "path-violation"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 418,
+  "predicted_attack": true,
+  "repetition": 19,
+  "run_id": "128-abnormal_2-r19",
+  "scenario": "abnormal_2",
+  "scenario_ended_at": "2026-11-17T08:17:59.392218Z",
+  "script_exit": 0,
+  "sequence": 128,
+  "started_at": "2026-11-17T08:17:44.026774Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "attack",
+  "valid": true
+}

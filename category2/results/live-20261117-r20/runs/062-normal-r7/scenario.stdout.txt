@@ -1,0 +1,11 @@
+[normal] round 1/2: frontend -> backend
+backend
+[normal] round 1/2: backend -> db
+db
+[normal] round 1/2: DNS and local health checks
+[normal] round 2/2: frontend -> backend
+backend
+[normal] round 2/2: backend -> db
+db
+[normal] round 2/2: DNS and local health checks
+Hubble: hubble observe --namespace pbl-security --since 10m --output compact

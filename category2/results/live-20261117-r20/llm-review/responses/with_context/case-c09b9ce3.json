@@ -1,0 +1,33 @@
+{
+  "verdict": "attack",
+  "confidence": 0.84,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-7",
+    "CHG-8301"
+  ],
+  "alternative_hypothesis": "A misconfigured frontend or unscheduled operational check attempted these connections.",
+  "missing_context": [
+    "Runtime process and command-line logs",
+    "Ownership and purpose of the three IP destinations",
+    "Operator records for any unscheduled diagnostic activity"
+  ],
+  "rationale": "The frontend repeatedly attempted non-baseline TCP/80 connections to three IPs and the database, consistent with probing; all were dropped. CHG-8301 covered a frontend-to-database reachability check but expired the previous day and did not cover the three IPs.",
+  "case_id": "case-c09b9ce3",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 8.655,
+    "usage": {
+      "prompt_tokens": 2016,
+      "completion_tokens": 373,
+      "total_tokens": 2389
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:43Z"
+  }
+}

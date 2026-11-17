@@ -1,0 +1,32 @@
+{
+  "alert_count": 1,
+  "artifact_dir": "runs/192-benign_maintenance_probe-r17",
+  "capture_ended_at": "2026-11-17T08:36:52.206823Z",
+  "connection_attempts": 4,
+  "description": "Authorized troubleshooting probes a path outside the declared service graph",
+  "detection_latency_seconds": 0.36,
+  "duration_seconds": 3.367,
+  "expected_rule_hits": [],
+  "expected_rules": [],
+  "hubble_exit": 0,
+  "l7_http_requests": 0,
+  "l7_review_candidates": 0,
+  "network_visible": true,
+  "observed_rules": [
+    "path-violation"
+  ],
+  "parse_errors": 0,
+  "parsed_flows": 101,
+  "predicted_attack": true,
+  "repetition": 17,
+  "run_id": "192-benign_maintenance_probe-r17",
+  "scenario": "benign_maintenance_probe",
+  "scenario_ended_at": "2026-11-17T08:36:50.206746Z",
+  "script_exit": 0,
+  "sequence": 192,
+  "started_at": "2026-11-17T08:36:46.839576Z",
+  "telemetry_loss_markers": 0,
+  "tiered_predicted_attack": true,
+  "truth_role": "benign",
+  "valid": true
+}

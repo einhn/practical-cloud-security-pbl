@@ -1,0 +1,33 @@
+{
+  "verdict": "benign",
+  "confidence": 0.91,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-4",
+    "edge-5"
+  ],
+  "alternative_hypothesis": "Malicious activity could use the declared service paths, or the redirection could be unauthorized.",
+  "missing_context": [
+    "HTTP request logs",
+    "Redirection policy or configuration",
+    "Runtime process logs"
+  ],
+  "rationale": "All observed workload, port, and protocol combinations match the declared service graph. The frontend-to-backend redirection is not explained by the available evidence, but it does not by itself establish malicious activity.",
+  "case_id": "case-ffe76b39",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.851,
+    "usage": {
+      "prompt_tokens": 1126,
+      "completion_tokens": 212,
+      "total_tokens": 1338
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:02Z"
+  }
+}

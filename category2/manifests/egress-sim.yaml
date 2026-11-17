@@ -1,0 +1,78 @@
+# Simulated "external" dependency for outbound covert-channel experiments.
+#
+# ext-api stands in for a third-party HTTPS API that the frontend legitimately
+# calls. Keeping it inside the kind cluster means no traffic leaves the lab,
+# while Hubble still sees a separate namespace/identity on a declared egress
+# edge. Benign request-driven calls and a periodic implant heartbeat then use
+# exactly the same L3/L4 edge, so only timing can tell them apart.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pbl-egress-sim
+  labels:
+    purpose: pbl-external-simulation
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ext-api
+  namespace: pbl-egress-sim
+  labels:
+    app: ext-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ext-api
+  template:
+    metadata:
+      labels:
+        app: ext-api
+    spec:
+      containers:
+        - name: ext-api
+          image: busybox:1.36.1
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-c"]
+          args:
+            - mkdir -p /www/v1 /www/hb; echo '{"ok":true}' > /www/v1/quote; echo ok > /www/hb/index.html; exec httpd -f -p 80 -h /www
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ext-api
+  namespace: pbl-egress-sim
+spec:
+  selector:
+    app: ext-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+# Declared egress dependency: frontend -> ext-api TCP/80. This edge is also
+# listed in detector/policy.json allowed_edges.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: pbl-frontend-egress-ext-api
+  namespace: pbl-security
+spec:
+  podSelector:
+    matchLabels:
+      app: frontend
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: pbl-egress-sim
+          podSelector:
+            matchLabels:
+              app: ext-api
+      ports:
+        - protocol: TCP
+          port: 80

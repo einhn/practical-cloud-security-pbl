@@ -1,0 +1,35 @@
+{
+  "verdict": "attack",
+  "confidence": 0.91,
+  "evidence_ids": [
+    "ev-a12b2afe",
+    "edge-1",
+    "edge-3",
+    "edge-5",
+    "edge-7",
+    "edge-9",
+    "edge-11"
+  ],
+  "alternative_hypothesis": "An authorized security test or diagnostic scan generated the attempts.",
+  "missing_context": [
+    "Change tickets or security-test authorization",
+    "Runtime process logs identifying the initiating process",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend systematically attempted non-baseline connections to two metadata-related addresses and a third target across four ports, supporting a reconnaissance finding. All observed attempts were dropped; successful access is not established.",
+  "case_id": "case-84472a0d",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 10.628,
+    "usage": {
+      "prompt_tokens": 2673,
+      "completion_tokens": 392,
+      "total_tokens": 3065
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:38Z"
+  }
+}

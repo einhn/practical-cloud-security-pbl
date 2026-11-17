@@ -1,0 +1,35 @@
+{
+  "verdict": "attack",
+  "confidence": 0.96,
+  "evidence_ids": [
+    "ev-2e7b23f5",
+    "edge-3",
+    "edge-6",
+    "edge-22",
+    "edge-25",
+    "edge-28",
+    "edge-31"
+  ],
+  "alternative_hypothesis": "An authorized security test or diagnostic scan originated from the frontend workload.",
+  "missing_context": [
+    "Change tickets or security-test authorization",
+    "Runtime process logs",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend systematically probed six non-baseline ports across five destinations, including administrative and Kubernetes-related ports, supporting a reconnaissance finding. The observed probes were dropped; available evidence does not establish successful access.",
+  "case_id": "case-301c1a6c",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.302,
+    "usage": {
+      "prompt_tokens": 4843,
+      "completion_tokens": 224,
+      "total_tokens": 5067
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:22Z"
+  }
+}

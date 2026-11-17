@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.82,
+  "evidence_ids": [
+    "ev-c56d79e2",
+    "edge-2"
+  ],
+  "alternative_hypothesis": "The periodic connections are expected application polling of the declared external API.",
+  "missing_context": [
+    "HTTP request paths and responses",
+    "Runtime process and command initiating the connections",
+    "Application polling configuration and change tickets"
+  ],
+  "rationale": "The frontend made eight regularly spaced, forwarded connections to an endpoint in the declared service graph. The timing could reflect either expected polling or malicious beaconing; the available evidence does not distinguish them.",
+  "case_id": "case-fdf967fd",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.165,
+    "usage": {
+      "prompt_tokens": 1039,
+      "completion_tokens": 207,
+      "total_tokens": 1246
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:59Z"
+  }
+}

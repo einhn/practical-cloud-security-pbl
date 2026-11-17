@@ -1,0 +1,2 @@
+[abnormal_1] frontend -> db, a service outside the normal path.
+Blocked as expected; inspect the new destination in Hubble.

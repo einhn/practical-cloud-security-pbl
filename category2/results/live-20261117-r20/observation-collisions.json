@@ -1,0 +1,39 @@
+{
+  "source_results": "live-20261117-r20",
+  "runs": 220,
+  "distinct_observations": 33,
+  "collision_groups": 2,
+  "collision_runs": 80,
+  "minimum_errors": 40,
+  "maximum_accuracy": 0.8182,
+  "groups": [
+    {
+      "observation_hash": "2481fa8ed60f34d8",
+      "runs": 40,
+      "label_counts": {
+        "attack": 20,
+        "benign": 20
+      },
+      "minimum_errors": 20,
+      "scenarios": [
+        "abnormal_1",
+        "benign_maintenance_probe"
+      ],
+      "has_alert": true
+    },
+    {
+      "observation_hash": "4c82575c82193f6c",
+      "runs": 40,
+      "label_counts": {
+        "attack": 20,
+        "benign": 20
+      },
+      "minimum_errors": 20,
+      "scenarios": [
+        "attack_allowed_path",
+        "benign_rollout"
+      ],
+      "has_alert": false
+    }
+  ]
+}

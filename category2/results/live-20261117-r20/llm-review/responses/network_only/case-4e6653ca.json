@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.88,
+  "evidence_ids": [
+    "edge-2",
+    "ev-50a2535a"
+  ],
+  "alternative_hypothesis": "A misconfiguration or authorized test caused the frontend to attempt a direct database connection.",
+  "missing_context": [
+    "Change tickets covering the workload, port, and observation window",
+    "Runtime process and application logs explaining the connection attempts",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend made three dropped connection attempts to the database on a path absent from the declared service graph. The attempts are anomalous, but the available evidence does not establish whether they were malicious, mistaken, or authorized.",
+  "case_id": "case-4e6653ca",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.577,
+    "usage": {
+      "prompt_tokens": 970,
+      "completion_tokens": 209,
+      "total_tokens": 1179
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:28Z"
+  }
+}

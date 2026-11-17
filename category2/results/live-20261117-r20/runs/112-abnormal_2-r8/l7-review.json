@@ -1,0 +1,9 @@
+{
+  "candidates": [],
+  "summary": {
+    "parse_errors": 0,
+    "parsed_http_requests": 0,
+    "semantic_review_candidates": 0
+  },
+  "warning": "A route deviation is not proof of attack. Correlate it with application ownership, change approval, Kubernetes Audit, and runtime lineage."
+}

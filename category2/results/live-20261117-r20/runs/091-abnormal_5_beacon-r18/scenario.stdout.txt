@@ -1,0 +1,9 @@
+[abnormal_5_beacon] 8 heartbeats every 4s (jitter=0.1) on the allowed frontend -> ext-api edge.
+beacon gap=3.685s
+beacon gap=3.652s
+beacon gap=4.130s
+beacon gap=4.122s
+beacon gap=3.890s
+beacon gap=4.055s
+beacon gap=4.310s
+Heartbeat completed; every connection was FORWARDED on a declared edge.

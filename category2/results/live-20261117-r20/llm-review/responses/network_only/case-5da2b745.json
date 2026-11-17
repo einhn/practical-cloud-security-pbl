@@ -1,0 +1,31 @@
+{
+  "verdict": "benign",
+  "confidence": 0.88,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "Malicious activity used the permitted frontend-to-backend connection.",
+  "missing_context": [
+    "L7 HTTP logs",
+    "Runtime process logs",
+    "Details of the redirection"
+  ],
+  "rationale": "All observed connections match the declared service graph, and capture telemetry reports no lost events or parse errors. The redirected connection is on an expected workload edge, though its content and redirection details are unavailable.",
+  "case_id": "case-5da2b745",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.067,
+    "usage": {
+      "prompt_tokens": 937,
+      "completion_tokens": 203,
+      "total_tokens": 1140
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:28Z"
+  }
+}

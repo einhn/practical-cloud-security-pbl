@@ -1,0 +1,182 @@
+{
+  "case_id": "case-b5cf6190",
+  "observation_window": {
+    "start": "2026-11-17T07:45:34Z",
+    "end": "2026-11-17T07:45:52Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [
+    {
+      "evidence_id": "ev-5f30bae1",
+      "rule_id": "correlated-lateral-movement",
+      "severity": "critical",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:45:36.095",
+      "last_seen": "2026-11-17T07:45:49.277",
+      "summary": "pbl-security/frontend shows a reconnaissance-to-access sequence",
+      "evidence": {
+        "constituent_rules": [
+          "destination-fanout",
+          "path-violation"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-4e8dbdbf",
+      "rule_id": "destination-fanout",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:45:36.095",
+      "last_seen": "2026-11-17T07:45:49.277",
+      "summary": "pbl-security/frontend contacted 4 destinations in 15s",
+      "evidence": {
+        "attempt_count": 30,
+        "destinations": [
+          "172.18.0.2",
+          "172.18.0.3",
+          "172.18.0.4",
+          "kube-system/coredns",
+          "pbl-security/backend",
+          "pbl-security/db"
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev-ffe81774",
+      "rule_id": "path-violation",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:45:36.322",
+      "last_seen": "2026-11-17T07:45:49.277",
+      "summary": "pbl-security/frontend attempted 4 non-baseline network path(s)",
+      "evidence": {
+        "blocked_syn_or_datagram_count": 10,
+        "targets": [
+          "172.18.0.2:80/TCP",
+          "172.18.0.3:80/TCP",
+          "172.18.0.4:80/TCP",
+          "pbl-security/db:80/TCP"
+        ]
+      }
+    }
+  ],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.2",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:45:41Z",
+      "last_seen": "2026-11-17T07:45:48Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.3",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:45:42Z",
+      "last_seen": "2026-11-17T07:45:49Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "172.18.0.4",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 2,
+      "first_seen": "2026-11-17T07:45:39Z",
+      "last_seen": "2026-11-17T07:45:47Z"
+    },
+    {
+      "evidence_id": "edge-4",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 12,
+      "first_seen": "2026-11-17T07:45:36Z",
+      "last_seen": "2026-11-17T07:45:44Z"
+    },
+    {
+      "evidence_id": "edge-5",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:45:36Z",
+      "last_seen": "2026-11-17T07:45:45Z"
+    },
+    {
+      "evidence_id": "edge-6",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "REDIRECTED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:45:36Z",
+      "last_seen": "2026-11-17T07:45:45Z"
+    },
+    {
+      "evidence_id": "edge-7",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/db",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "DROPPED",
+      "attempts": 4,
+      "first_seen": "2026-11-17T07:45:36Z",
+      "last_seen": "2026-11-17T07:45:45Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": {
+      "http_requests_observed": 0,
+      "allowlisted_routes": [
+        "pbl-security/frontend -> pbl-security/backend: GET /"
+      ],
+      "deviations": []
+    },
+    "change_tickets": [
+      {
+        "ticket": "[CHG-3602] CoreDNS 캐시 설정 변경 검토 (적용 없음). 담당 platform-team.",
+        "window_start": "2026-11-17T07:41:34Z",
+        "window_end": "2026-11-17T08:41:34Z"
+      },
+      {
+        "ticket": "[CHG-3081] backend Deployment 이미지 패치(busybox 1.36.1) 및 재시작. 담당 platform-team.",
+        "window_start": "2026-11-17T07:05:34Z",
+        "window_end": "2026-11-17T08:05:34Z"
+      },
+      {
+        "ticket": "[CHG-3476] 운영 점검: frontend에서 DB TCP/80 reachability 확인 (차단 기대). 담당 ops-oncall, 승인 sec-lead.",
+        "window_start": "2026-11-16T07:42:34Z",
+        "window_end": "2026-11-16T08:12:34Z"
+      }
+    ],
+    "kubernetes_audit": "not_collected (every action in this lab uses the same admin identity)",
+    "runtime_process": "not_collected"
+  }
+}

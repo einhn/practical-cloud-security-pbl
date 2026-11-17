@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "ev-421c273f",
+    "edge-2"
+  ],
+  "alternative_hypothesis": "A compromised frontend is beaconing through the declared external API connection.",
+  "missing_context": [
+    "HTTP request paths, payloads, and responses",
+    "Runtime process information for the connections",
+    "Expected polling behavior or applicable change tickets"
+  ],
+  "rationale": "The eight forwarded connections were highly periodic, but their destination and port are in the declared service graph. Without application or process context, routine polling and malicious beaconing both remain plausible.",
+  "case_id": "case-813492e1",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.229,
+    "usage": {
+      "prompt_tokens": 1039,
+      "completion_tokens": 213,
+      "total_tokens": 1252
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:32Z"
+  }
+}

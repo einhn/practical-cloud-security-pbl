@@ -1,0 +1,78 @@
+{
+  "monitored_namespaces": [
+    "pbl-security"
+  ],
+  "window_seconds": 15,
+  "correlation_window_seconds": 60,
+  "destination_fanout_threshold": 4,
+  "port_fanout_threshold": 4,
+  "dedup_milliseconds": 250,
+  "sensitive_ports": [
+    22,
+    2379,
+    2380,
+    6443,
+    6667,
+    6697,
+    10250,
+    10255
+  ],
+  "metadata_addresses": [
+    "169.254.169.254",
+    "169.254.170.2"
+  ],
+  "allowed_edges": [
+    {
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "source": "pbl-security/backend",
+      "destination": "pbl-security/db",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "source": "pbl-security/frontend",
+      "destination": "pbl-egress-sim/ext-api",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP"
+    },
+    {
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "TCP"
+    },
+    {
+      "source": "pbl-security/backend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP"
+    },
+    {
+      "source": "pbl-security/backend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "TCP"
+    }
+  ],
+  "beacon": {
+    "min_events": 6,
+    "min_interval_seconds": 2.0,
+    "max_interval_seconds": 600,
+    "max_cv": 0.25,
+    "exclude_ports": [
+      53
+    ],
+    "declared_periodic_edges": []
+  }
+}

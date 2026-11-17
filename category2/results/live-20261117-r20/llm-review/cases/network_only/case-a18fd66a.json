@@ -1,0 +1,72 @@
+{
+  "case_id": "case-a18fd66a",
+  "observation_window": {
+    "start": "2026-11-17T07:53:09Z",
+    "end": "2026-11-17T07:53:40Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [
+    {
+      "evidence_id": "ev-a50a3109",
+      "rule_id": "periodic-beacon",
+      "severity": "high",
+      "source": "pbl-security/frontend",
+      "first_seen": "2026-11-17T07:53:10.127",
+      "last_seen": "2026-11-17T07:53:38.624",
+      "summary": "pbl-security/frontend opened 8 connections to pbl-egress-sim/ext-api:80/TCP every 4.121s (CV=0.0429)",
+      "evidence": {
+        "edge": "pbl-egress-sim/ext-api:80/TCP",
+        "edge_in_service_graph": true,
+        "events": 8,
+        "interval_cv": 0.0429,
+        "mean_interval_seconds": 4.071,
+        "median_interval_seconds": 4.121,
+        "verdicts": [
+          "FORWARDED"
+        ]
+      }
+    }
+  ],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 48,
+      "first_seen": "2026-11-17T07:53:10Z",
+      "last_seen": "2026-11-17T07:53:38Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-egress-sim/ext-api",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 8,
+      "first_seen": "2026-11-17T07:53:10Z",
+      "last_seen": "2026-11-17T07:53:38Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": "not_collected",
+    "change_tickets": "not_collected",
+    "kubernetes_audit": "not_collected",
+    "runtime_process": "not_collected"
+  }
+}

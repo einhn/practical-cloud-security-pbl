@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.91,
+  "evidence_ids": [
+    "edge-2",
+    "ev-aa6a861c"
+  ],
+  "alternative_hypothesis": "The frontend was misconfigured or performing authorized testing rather than attempting malicious access.",
+  "missing_context": [
+    "Change tickets or other authorization records",
+    "Runtime process logs identifying the initiating process",
+    "Application logs explaining the connection attempts"
+  ],
+  "rationale": "The frontend made three dropped connection attempts to the database on a path absent from the declared service graph. The available evidence does not establish whether the attempts were malicious, authorized, or caused by misconfiguration.",
+  "case_id": "case-313a0d2f",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.005,
+    "usage": {
+      "prompt_tokens": 970,
+      "completion_tokens": 192,
+      "total_tokens": 1162
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:22Z"
+  }
+}

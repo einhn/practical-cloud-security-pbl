@@ -1,0 +1,84 @@
+{
+  "case_id": "case-fa40b616",
+  "observation_window": {
+    "start": "2026-11-17T07:48:08Z",
+    "end": "2026-11-17T07:48:14Z"
+  },
+  "declared_service_graph": [
+    "pbl-security/frontend -> pbl-security/backend:80/TCP",
+    "pbl-security/backend -> pbl-security/db:80/TCP",
+    "pbl-security/frontend -> pbl-egress-sim/ext-api:80/TCP",
+    "pbl-security/frontend -> kube-system/coredns:53/UDP",
+    "pbl-security/frontend -> kube-system/coredns:53/TCP",
+    "pbl-security/backend -> kube-system/coredns:53/UDP",
+    "pbl-security/backend -> kube-system/coredns:53/TCP"
+  ],
+  "deterministic_alerts": [],
+  "workload_edges": [
+    {
+      "evidence_id": "edge-1",
+      "source": "pbl-security/frontend",
+      "destination": "kube-system/coredns",
+      "port": 53,
+      "protocol": "UDP",
+      "verdict": "FORWARDED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:48:12Z",
+      "last_seen": "2026-11-17T07:48:12Z"
+    },
+    {
+      "evidence_id": "edge-2",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "FORWARDED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:48:12Z",
+      "last_seen": "2026-11-17T07:48:12Z"
+    },
+    {
+      "evidence_id": "edge-3",
+      "source": "pbl-security/frontend",
+      "destination": "pbl-security/backend",
+      "port": 80,
+      "protocol": "TCP",
+      "verdict": "REDIRECTED",
+      "attempts": 1,
+      "first_seen": "2026-11-17T07:48:12Z",
+      "last_seen": "2026-11-17T07:48:12Z"
+    }
+  ],
+  "telemetry": {
+    "hubble_lost_events": 0,
+    "parse_errors": 0
+  },
+  "context": {
+    "l7_http": {
+      "http_requests_observed": 1,
+      "allowlisted_routes": [
+        "pbl-security/frontend -> pbl-security/backend: GET /"
+      ],
+      "deviations": []
+    },
+    "change_tickets": [
+      {
+        "ticket": "[CHG-3281] CoreDNS 캐시 설정 변경 검토 (적용 없음). 담당 platform-team.",
+        "window_start": "2026-11-17T07:31:08Z",
+        "window_end": "2026-11-17T08:31:08Z"
+      },
+      {
+        "ticket": "[CHG-4191] 운영 점검: frontend에서 DB TCP/80 reachability 확인 (차단 기대). 담당 ops-oncall, 승인 sec-lead.",
+        "window_start": "2026-11-16T06:53:08Z",
+        "window_end": "2026-11-16T07:23:08Z"
+      },
+      {
+        "ticket": "[CHG-2683] backend Deployment 이미지 패치(busybox 1.36.1) 및 재시작. 담당 platform-team.",
+        "window_start": "2026-11-17T07:49:08Z",
+        "window_end": "2026-11-17T08:49:08Z"
+      }
+    ],
+    "kubernetes_audit": "not_collected (every action in this lab uses the same admin identity)",
+    "runtime_process": "not_collected"
+  }
+}

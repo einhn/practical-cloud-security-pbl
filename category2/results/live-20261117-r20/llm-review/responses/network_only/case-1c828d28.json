@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "edge-2",
+    "ev-589a92c1"
+  ],
+  "alternative_hypothesis": "A compromised frontend was probing the database directly.",
+  "missing_context": [
+    "Change tickets covering the observation window and frontend-to-db port 80 access",
+    "Runtime process logs identifying what initiated the connections",
+    "Kubernetes audit logs or deployment configuration changes"
+  ],
+  "rationale": "The frontend made three dropped connection attempts to the database on port 80, a path absent from the declared service graph. The attempts could reflect either unauthorized probing or a configuration error; the available evidence does not distinguish them.",
+  "case_id": "case-1c828d28",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.22,
+    "usage": {
+      "prompt_tokens": 970,
+      "completion_tokens": 220,
+      "total_tokens": 1190
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:18Z"
+  }
+}

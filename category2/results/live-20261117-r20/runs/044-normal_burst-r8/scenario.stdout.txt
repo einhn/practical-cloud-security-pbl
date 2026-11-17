@@ -1,0 +1,2 @@
+[normal_burst] 24 frontend -> backend requests, concurrency=6
+A rate-only detector may alert here; the identity/service-graph detector should not.

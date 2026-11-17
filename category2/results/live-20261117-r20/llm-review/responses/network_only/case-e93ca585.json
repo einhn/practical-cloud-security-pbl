@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.88,
+  "evidence_ids": [
+    "edge-2",
+    "ev-17e68a93"
+  ],
+  "alternative_hypothesis": "A compromised frontend attempted unauthorized direct access to the database.",
+  "missing_context": [
+    "Change tickets covering the observation window",
+    "Frontend runtime process and application logs",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend made three dropped connection attempts to the database on a path outside the declared service graph. A configuration error or authorized change remains plausible, but change and runtime context were not collected.",
+  "case_id": "case-e93ca585",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 6.759,
+    "usage": {
+      "prompt_tokens": 968,
+      "completion_tokens": 252,
+      "total_tokens": 1220
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:55Z"
+  }
+}

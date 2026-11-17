@@ -1,0 +1,31 @@
+{
+  "verdict": "attack",
+  "confidence": 0.86,
+  "evidence_ids": [
+    "l7-1",
+    "edge-2",
+    "edge-3"
+  ],
+  "alternative_hypothesis": "The request was an authorized security simulation not documented in the provided tickets.",
+  "missing_context": [
+    "Backend access logs and HTTP response",
+    "Runtime process logs identifying the request initiator",
+    "Authorization for a credential-read simulation"
+  ],
+  "rationale": "The frontend sent a request to a non-allowlisted backend route explicitly labeled as a simulated credential-read action. No provided ticket authorizes that activity, though the evidence does not establish that real credentials were accessed.",
+  "case_id": "case-416a6bcb",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.863,
+    "usage": {
+      "prompt_tokens": 1345,
+      "completion_tokens": 364,
+      "total_tokens": 1709
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:20Z"
+  }
+}

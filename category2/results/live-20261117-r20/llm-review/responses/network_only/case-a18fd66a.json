@@ -1,0 +1,30 @@
+{
+  "verdict": "insufficient_evidence",
+  "confidence": 0.84,
+  "evidence_ids": [
+    "ev-a50a3109",
+    "edge-2"
+  ],
+  "alternative_hypothesis": "The periodic connections were malicious beaconing over an allowed service edge.",
+  "missing_context": [
+    "HTTP request paths, headers, and responses",
+    "Runtime process identity and behavior",
+    "Expected polling cadence or historical traffic baseline"
+  ],
+  "rationale": "Eight forwarded connections were highly periodic, but the frontend-to-ext-api edge is declared. Without application or process context, expected polling and malicious beaconing remain plausible.",
+  "case_id": "case-a18fd66a",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.914,
+    "usage": {
+      "prompt_tokens": 1039,
+      "completion_tokens": 213,
+      "total_tokens": 1252
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:38Z"
+  }
+}

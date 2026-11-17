@@ -1,0 +1,40 @@
+{
+  "verdict": "attack",
+  "confidence": 0.93,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-4",
+    "edge-5",
+    "edge-6",
+    "edge-7",
+    "edge-8",
+    "edge-9",
+    "edge-10",
+    "edge-11",
+    "edge-12"
+  ],
+  "alternative_hypothesis": "An authorized security test or diagnostic scan generated the probes.",
+  "missing_context": [
+    "Change tickets or other authorization for the observed targets, ports, and time window",
+    "Runtime process logs identifying the initiating process",
+    "Kubernetes audit logs"
+  ],
+  "rationale": "The frontend systematically probed four ports across three destinations, including cloud metadata addresses, outside the declared service graph. All attempts were dropped; the pattern supports unauthorized reconnaissance, though authorization records were unavailable.",
+  "case_id": "case-96dc120a",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 7.077,
+    "usage": {
+      "prompt_tokens": 2667,
+      "completion_tokens": 300,
+      "total_tokens": 2967
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:46:39Z"
+  }
+}

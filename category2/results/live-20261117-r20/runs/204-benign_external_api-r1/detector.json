@@ -1,0 +1,11 @@
+{
+  "alerts": [],
+  "summary": {
+    "alert_count": 0,
+    "connection_attempts": 56,
+    "coverage": "complete",
+    "parse_errors": 0,
+    "parsed_flows": 767,
+    "telemetry_loss_markers": 0
+  }
+}

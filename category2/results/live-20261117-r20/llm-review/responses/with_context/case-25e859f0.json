@@ -1,0 +1,30 @@
+{
+  "verdict": "benign",
+  "confidence": 0.88,
+  "evidence_ids": [
+    "edge-1",
+    "edge-2"
+  ],
+  "alternative_hypothesis": "The frontend used permitted DNS or external API connections for unauthorized activity.",
+  "missing_context": [
+    "DNS query logs",
+    "HTTP request details",
+    "Frontend runtime process logs"
+  ],
+  "rationale": "Both observed connections match the declared service graph, and the available evidence shows no deviation from expected network activity.",
+  "case_id": "case-25e859f0",
+  "_meta": {
+    "model_requested": "gpt-6.1-terra",
+    "model_reported": "gpt-6.1-terra",
+    "temperature": 0.0,
+    "prompt_sha256": "bb556397063cc7df69900c0706d5531852ba25d24368d540fd883c93fc958fb6",
+    "latency_seconds": 5.736,
+    "usage": {
+      "prompt_tokens": 1097,
+      "completion_tokens": 187,
+      "total_tokens": 1284
+    },
+    "attempt": 1,
+    "completed_at": "2026-11-17T08:47:07Z"
+  }
+}

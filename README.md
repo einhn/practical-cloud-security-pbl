@@ -2,6 +2,8 @@
 
 **한국어** | [English (원본 프로젝트 안내)](README_EN.md) | [Category 2 원본 과제 설명](category2/README_EN.md)
 
+<img width="1122" height="333" alt="image" src="https://github.com/user-attachments/assets/3300ad45-4055-4c77-a9da-225950edcc95" />
+
 Hildegard/TeamTNT(Unit 42, 2021) 사례를 바탕으로, Cilium Hubble flow에서 정상적인 Pod 통신과 내부 탐색, 측면 이동, C2 통신을 구분하는 탐지 시스템입니다. 탐지기는 Pod 이름 대신 workload 단위로 flow를 묶고, 미리 선언한 서비스 간 통신 관계(서비스 그래프)와 통신의 시간 패턴을 근거로 판정합니다. 네트워크 기록만으로는 정상과 공격이 똑같아 보이는 경우는 HTTP 로그, Tetragon의 process 기록, LLM 검토로 넘깁니다.
 
 > 실습은 masscan, 악성코드, miner, 실제 C2를 실행하지 않으며, 공격 시나리오는 Hubble에서 관찰되는 목적지, 포트, 주기만 안전하게 재현합니다.

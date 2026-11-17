@@ -2,7 +2,7 @@
 
 **한국어** | [English (원본 프로젝트 안내)](README_EN.md) | [Category 2 원본 과제 설명](category2/README_EN.md)
 
-<img width="1122" height="333" alt="image" src="https://github.com/user-attachments/assets/3300ad45-4055-4c77-a9da-225950edcc95" />
+<img width="2098" height="584" alt="image" src="https://github.com/user-attachments/assets/3b1b23f9-3803-418a-885c-23530db672af" />
 
 Hildegard/TeamTNT(Unit 42, 2021) 사례를 바탕으로, Cilium Hubble flow에서 정상적인 Pod 통신과 내부 탐색, 측면 이동, C2 통신을 구분하는 탐지 시스템입니다. 탐지기는 Pod 이름 대신 workload 단위로 flow를 묶고, 미리 선언한 서비스 간 통신 관계(서비스 그래프)와 통신의 시간 패턴을 근거로 판정합니다. 네트워크 기록만으로는 정상과 공격이 똑같아 보이는 경우는 HTTP 로그, Tetragon의 process 기록, LLM 검토로 넘깁니다.
 
@@ -40,6 +40,8 @@ Hildegard/TeamTNT(Unit 42, 2021) 사례를 바탕으로, Cilium Hubble flow에�
 | [`attack_allowed_path.sh`](category2/scenarios/attack_allowed_path.sh) | 공격 (구분 불가) | 허용된 frontend→backend 경로로 자격증명을 노리는 HTTP 요청을 흉내 냄 | L3/L4 기록에는 정상과 차이가 없고, HTTP 경로 검사만 검토 대상으로 넘김 |
 
 ## 탐지 방법
+
+<img width="1122" height="333" alt="image" src="https://github.com/user-attachments/assets/cfa761ad-9685-4176-9243-af3ab2a5b734" />
 
 탐지는 모든 flow를 처리하는 규칙 판정 단계와, 규칙으로 구분되지 않는 사례만 다루는 검토 단계로 나뉩니다.
 
